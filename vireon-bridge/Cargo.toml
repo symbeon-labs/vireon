@@ -1,0 +1,24 @@
+[package]
+name = "quantum-bridge"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+repository.workspace = true
+license.workspace = true
+
+[features]
+default = ["quantum", "security"]
+quantum = []
+security = []
+
+[dependencies]
+warp-rules = { workspace = true }
+tokio = { workspace = true }
+anyhow = { workspace = true }
+serde = { workspace = true }
+tracing = { workspace = true }
+quantum = { workspace = true }
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["test-util"] }
+

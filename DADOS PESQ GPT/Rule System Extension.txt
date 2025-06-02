@@ -1,0 +1,32 @@
+# 📀 **Extensão Dinâmica do Sistema de Regras para o Warp Agent**
+
+![Status](https://img.shields.io/badge/Status-Proposta-blue)
+![Versão](https://img.shields.io/badge/Versão-1.0-orange)
+![Escopo](https://img.shields.io/badge/Escopo-Todas_as_Regras-green)
+
+## Sumário
+
+* [Visão Geral](#visão-geral)
+* [O Conceito de Regras Dinâmicas](#o-conceito-de-regras-dinâmicas)
+* [Extensão para Regras Existentes](#extensão-para-regras-existentes)
+* [Arquitetura do Sistema Unificado](#arquitetura-do-sistema-unificado)
+* [Internacionalização e Personalização](#internacionalização-e-personalização)
+* [Orientações de Implementação](#orientações-de-implementação)
+* [Exemplo de Implementação Completa](#exemplo-de-implementação-completa)
+* [Considerações e Próximos Passos](#considerações-e-próximos-passos)
+
+(...documento segue com todos os tópicos apresentados na mensagem anterior...)
+
+## Considerações e Próximos Passos
+
+A extensão do sistema de regras para um modelo dinâmico e configurável simboliza o amadurecimento do Warp Agent como uma arquitetura de interação simbótica e adaptativa. Esse modelo não apenas aumenta a flexibilidade, como também prepara o agente para uma futura capacidade de autoajuste, aprendizagem personalizada e expansão interlinguística.
+
+### Recomendações finais:
+
+* Formalizar a abstração `AbstractRule` e padronizar o `RuleManager`
+* Criar uma camada visual (GUI) para edição de regras por não-programadores
+* Integrar com banco vetorial semântico para raciocínio baseado em regras + contexto
+* Garantir auditoria de regras via logs ou blockchain (quando aplicável)
+
+---
+

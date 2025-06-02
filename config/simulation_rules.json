@@ -1,0 +1,32 @@
+{
+  "simulation_rules": [
+    {
+      "type": "simulation",
+      "operation": "echo",
+      "handler": "simple_echo",
+      "confidence": 1.0,
+      "description": "Simulação simples de echo"
+    },
+    {
+      "type": "simulation",
+      "operation": "file_info",
+      "handler": "file_info",
+      "confidence": 0.9,
+      "description": "Informações sobre arquivos"
+    },
+    {
+      "type": "simulation",
+      "operation": "math_calculation",
+      "handler": "math_calculation",
+      "confidence": 0.85,
+      "description": "Cálculos matemáticos simples"
+    },
+    {
+      "type": "simulation",
+      "operation": "text_transformation",
+      "handler": "text_transformation",
+      "confidence": 0.9,
+      "description": "Transformações de texto"
+    }
+  ]
+}

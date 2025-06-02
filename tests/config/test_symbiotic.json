@@ -1,0 +1,14 @@
+{
+    "rule_priorities": {
+        "language": 100,
+        "framework": 80,
+        "architecture": 90,
+        "general": 50
+    },
+    "test_config": {
+        "enable_debug": true,
+        "log_level": "INFO",
+        "test_mode": true
+    }
+}
+

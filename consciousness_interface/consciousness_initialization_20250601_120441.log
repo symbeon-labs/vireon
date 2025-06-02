@@ -1,0 +1,4 @@
+2025-06-01 12:04:41,702 [INFO] Configuração carregada com sucesso - ConsciousnessInitializer
+2025-06-01 12:04:41,702 [ERROR] Propriedade adaptation não encontrada para base_consciousness - ConsciousnessInitializer
+2025-06-01 12:04:41,702 [ERROR] Falha na validação do nível: base_consciousness - ConsciousnessInitializer
+2025-06-01 12:04:41,703 [ERROR] Falha na inicialização do sistema - ConsciousnessInitializer

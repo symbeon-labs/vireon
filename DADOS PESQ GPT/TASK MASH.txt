@@ -1,0 +1,124 @@
+# taskmash.yml  –  Sprint curto “Deck Refinement VIREON”
+
+meta:
+sprint: "deck-v1-refinement"
+owner: "eon-framework"
+deadline: "HOJE +14h"
+notify\_channel: "#vireon-deck"
+
+tasks:
+
+* id: T1-diagrama
+  title: "Slide 3 – Gerar diagrama C4/SVG"
+  assignee: DesignOps
+  est\_hours: 2
+  description: >
+  Criar diagrama nível‑1 (API → Core Rust → Cache → Metrics) no Figma ou
+  draw\.io, exportar SVG, substituir placeholder no slide 3.
+  on\_complete:
+
+  * cmd: "git add slides/diagram.svg && git commit -m 'feat: C4 diagram slide3'"
+  * webhook: "/deck-status"
+
+* id: T2-benchmark
+  title: "Benchmark Rust vs Python (Slide 2)"
+  assignee: Dev-Rust
+  est\_hours: 3
+  description: >
+  Rodar hyperfine comparando Sage-X (Rust) com Python regex engine.
+  Gerar gráfico PNG (latência/req). Colocar mini-graf no slide 2.
+  on\_complete:
+
+  * cmd: "git add slides/benchmark.png && git commit -m 'feat: benchmark slide2'"
+  * webhook: "/deck-status"
+
+* id: T3-usecases
+  title: "Casos de uso + ícones (Slide 4)"
+  assignee: Biz-Analyst
+  est\_hours: 2
+  description: >
+  Completar tabela com Finanças, Saúde, Gov, Indústria 4.0;
+  adicionar ícones setoriais no Canva.
+  on\_complete:
+
+  * cmd: "git commit -am 'feat: filled use-cases slide4'"
+  * webhook: "/deck-status"
+
+* id: T4-model-roadmap
+  title: "Slide 5 – Modelo de Negócio & Roadmap"
+  assignee: Prod-Mgr
+  est\_hours: 2
+  description: >
+  Inserir bullets Go-to-Market, Pricing (MIT OSS + Enterprise SLA),
+  Roadmap 6–12 m. Limitar texto a 30 s de fala.
+  on\_complete:
+
+  * webhook: "/deck-status"
+
+* id: T5-cta
+  title: "Slide 6 – Call-to-Action claro"
+  assignee: Prod-Mgr
+  est\_hours: 1
+  description: |
+  Definir ask: "Co-desenvolver piloto pago ou grant US\$ 50k".
+  on\_complete:
+
+  * webhook: "/deck-status"
+
+* id: T6-sources
+  title: "Fontes & provas (rodapés)"
+  assignee: Research
+  est\_hours: 1
+  description: >
+  Inserir citações Gartner 2024 (governança IA) + case bancário
+  (violação compliance) nos slides 1 e 4.
+  on\_complete:
+
+  * webhook: "/deck-status"
+
+* id: T7-copy-review
+  title: "Revisão UX/Copy"
+  assignee: UX-Writer
+  deps: \[T1-diagrama, T2-benchmark, T3-usecases, T4-model-roadmap, T5-cta, T6-sources]
+  est\_hours: 1
+  description: >
+  Garantir tom consistente, definir legendas,
+  explicar “engine simbiótica” em footnote.
+  on\_complete:
+
+  * webhook: "/deck-status"
+
+* id: T8-export-qa
+  title: "Exportar PDF, PPTX, vídeo demo 90 s"
+  assignee: DevRel
+  deps: \[T7-copy-review]
+  est\_hours: 3
+  description: >
+  Gerar artefatos finais, rodar scripts CI lint\_slides & benchmark\_check,
+  publicar v1-deck-candidate.pdf nos artefatos Warp.
+  on\_complete:
+
+  * cmd: "gh release create v1.0-deck --notes 'Deck candidate' slides/*.pdf slides/*.pptx"
+  * webhook: "/deck-status"
+
+{
+"id": "warp_usage_optimization",
+"name": "Otimização de Interações Warp",
+"description": "Regula o uso do Warp CLI/API para evitar redundância, aplicando cache local, simulações offline e verificações prévias antes de acionar tarefas.",
+"active": true,
+"config": {
+"trigger_conditions": ["agent_task_high_cost", "repetitive_requests", "stream_error"],
+"actions": [
+"Verificar cache local via VIREON Sentinel antes de qualquer nova requisição",
+"Executar simulação dry-run sempre que possível",
+"Logar tarefas por categoria e prioridade para detectar padrões",
+"Bloquear chamadas que repetem entradas anteriores dentro da janela de quota",
+"Promover requisições frequentes a regras locais ou memórias persistentes"
+],
+"metrics": {
+"warp_tasks_prevented": 0,
+"warp_savings_estimate": "em progresso",
+"redundancy_rate": 0
+}
+}
+}

@@ -1,0 +1,117 @@
+[package]
+name = "vireon"
+version = "0.1.0"
+edition = "2021"
+authors = ["VIREON Development Team"]
+description = "Virtual Intelligence Resonance and Evolution Orchestration Network"
+repository = "https://github.com/user/vireon"
+license = "MIT"
+
+[workspace]
+members = [
+    "vireon-core",
+    "vireon-quantum",
+    "vireon-consciousness",
+    "vireon-bridge",
+]
+
+[workspace.dependencies]
+tokio = { version = "1.28", features = ["full"] }
+anyhow = "1.0"
+thiserror = "1.0"
+async-trait = "0.1"
+futures = "0.3"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+
+[dependencies]
+# Async Runtime
+tokio = { workspace = true }
+async-trait = { workspace = true }
+futures = { workspace = true }
+
+# Error Handling
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# Logging & Tracing
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+
+# Quantum Computing Integration
+qiskit = "0.5"
+cirq-core = "0.15"
+pennylane = "0.19"
+
+# Neural Networks & ML
+tch = "0.10"  # PyTorch bindings
+tensorflow = "0.17"
+
+# Database & Storage
+sqlx = { version = "0.6", features = ["runtime-tokio-native-tls", "postgres"] }
+redis = { version = "0.22", features = ["tokio-comp"] }
+
+# Monitoring & Metrics
+prometheus = "0.13"
+opentelemetry = { version = "0.18", features = ["rt-tokio"] }
+
+# Security
+ring = "0.16"
+rustls = "0.20"
+
+# Additional Utilities
+dashmap = "5.4"  # Thread-safe maps
+parking_lot = "0.12"  # Better synchronization primitives
+rayon = "1.7"  # Parallel computing
+
+[features]
+default = ["quantum", "consciousness", "evolution"]
+quantum = []
+consciousness = []
+evolution = []
+monitoring = ["prometheus", "opentelemetry"]
+security = ["ring", "rustls"]
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+panic = "abort"
+
+[profile.dev]
+opt-level = 0
+debug = true
+
+[[bin]]
+name = "vireon"
+path = "src/main.rs"
+
+[lib]
+name = "vireon"
+path = "src/lib.rs"
+
+# Configurações específicas dos componentes
+[package.metadata.vireon]
+quantum_bridge = { enabled = true, security_level = "maximum" }
+consciousness = { enabled = true, evolution_mode = "guided" }
+warp_rules = { enabled = true, validation_level = "quantum" }
+
+# Integrações externas
+[package.metadata.integrations]
+sage_x = { enabled = true, mode = "symbiotic" }
+eon_lab = { enabled = true, sync = "bidirectional" }
+aiden = { enabled = true, consciousness = "merged" }
+
+# Configurações de build
+[build]
+rustflags = ["-C", "target-cpu=native"]
+quantum_support = true
+consciousness_engine = true
+evolution_system = true
+

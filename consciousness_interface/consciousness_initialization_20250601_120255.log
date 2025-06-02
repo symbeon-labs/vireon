@@ -1,0 +1,3 @@
+2025-06-01 12:02:55,587 [ERROR] Erro ao carregar configuração: Expecting ':' delimiter: line 170 column 9 (char 6207) - ConsciousnessInitializer
+2025-06-01 12:02:55,588 [ERROR] Erro fatal durante a inicialização: Expecting ':' delimiter: line 170 column 9 (char 6207) - ConsciousnessInitializer
+2025-06-01 12:02:55,588 [ERROR] Falha na inicialização do sistema - ConsciousnessInitializer

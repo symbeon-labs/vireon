@@ -1,0 +1,82 @@
+{
+  "warp_integration": {
+    "enabled": true,
+    "sync_interval": 300,
+    "rules_path": "./rules",
+    "api_url": "http://localhost:8001",
+    "use_cli": false,
+    "max_concurrent_requests": 5
+  },
+  "rule_priorities": {
+    "language": 100,
+    "framework": 90,
+    "architecture": 80,
+    "workflow": 70,
+    "symbiotic": 60,
+    "general": 50
+  },
+  "warp_optimus": {
+    "enabled": true,
+    "cache": {
+      "ttl_seconds": 3600,
+      "max_entries": 1000,
+      "storage_path": "~/.vireon/cache"
+    },
+    "simulation": {
+      "enabled": true,
+      "confidence_threshold": 0.8,
+      "rules_path": "./config/simulation_rules.json"
+    },
+    "resource_sentinel": {
+      "soft_limit": 2500,
+      "hard_limit": 3000,
+      "window_seconds": 2592000,
+      "backoff_seconds": 60,
+      "policy_level": "normal"
+    }
+  },
+  "language_preferences": {
+    "primary": "python",
+    "secondary": "rust",
+    "interaction": "portuguese_br",
+    "fallback": "english",
+    "documentation": "portuguese_br"
+  },
+  "framework_preferences": {
+    "web_api": "fastapi",
+    "web_admin": "django",
+    "high_performance": "axum",
+    "prototype": "flask",
+    "modular_services": "litestar"
+  },
+  "architecture": {
+    "type": "symbiotic",
+    "model": "meta_governance",
+    "components": [
+      "rule_manager",
+      "warp_bridge",
+      "cache_manager",
+      "dry_run_simulator",
+      "resource_sentinel"
+    ],
+    "modules": {
+      "core": "./core",
+      "agents": "./agents",
+      "config": "./config",
+      "rust_module": "./sage_x_rust_module"
+    }
+  },
+  "logging": {
+    "level": "INFO",
+    "file_path": ".vireon.log",
+    "format": "%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+    "console_output": true
+  },
+  "model_routing": {
+    "orchestration": "gpt-4o-128k",
+    "code_refactor": "gpt-4o-code",
+    "qa_fast": "gpt-3.5-turbo-0125",
+    "sentinel": "gpt-3.5-turbo-16k",
+    "metrics": "gpt-3.5-turbo-0125"
+  }
+}

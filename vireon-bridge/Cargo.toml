@@ -1,24 +1,21 @@
-[package]
-name = "quantum-bridge"
+﻿[package]
+name = "vireon_bridge"
 version.workspace = true
 edition.workspace = true
 authors.workspace = true
 repository.workspace = true
 license.workspace = true
 
-[features]
-default = ["quantum", "security"]
-quantum = []
-security = []
-
 [dependencies]
-warp-rules = { workspace = true }
 tokio = { workspace = true }
 anyhow = { workspace = true }
+thiserror = { workspace = true }
 serde = { workspace = true }
+serde_json = { workspace = true }
 tracing = { workspace = true }
-quantum = { workspace = true }
+async-trait = { workspace = true }
+futures = { workspace = true }
 
 [dev-dependencies]
-tokio = { workspace = true, features = ["test-util"] }
-
+tokio-test = { workspace = true }
+test-case = { workspace = true }

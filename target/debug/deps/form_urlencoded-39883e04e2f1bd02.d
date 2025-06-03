@@ -1,0 +1,5 @@
+C:\Users\João\Desktop\PROJETOS\AGENTES_IA\VIREON\target\debug\deps\libform_urlencoded-39883e04e2f1bd02.rmeta: C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\form_urlencoded-1.2.1\src\lib.rs
+
+C:\Users\João\Desktop\PROJETOS\AGENTES_IA\VIREON\target\debug\deps\form_urlencoded-39883e04e2f1bd02.d: C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\form_urlencoded-1.2.1\src\lib.rs
+
+C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\form_urlencoded-1.2.1\src\lib.rs:

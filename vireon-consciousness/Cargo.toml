@@ -1,24 +1,21 @@
-[package]
-name = "consciousness"
+﻿[package]
+name = "vireon_consciousness"
 version.workspace = true
 edition.workspace = true
 authors.workspace = true
 repository.workspace = true
 license.workspace = true
 
-[features]
-default = ["consciousness", "evolution"]
-consciousness = []
-evolution = []
-
 [dependencies]
-quantum = { workspace = true }
-warp-rules = { workspace = true }
 tokio = { workspace = true }
 anyhow = { workspace = true }
+thiserror = { workspace = true }
 serde = { workspace = true }
+serde_json = { workspace = true }
 tracing = { workspace = true }
+async-trait = { workspace = true }
+futures = { workspace = true }
 
 [dev-dependencies]
-tokio = { workspace = true, features = ["test-util"] }
-
+tokio-test = { workspace = true }
+test-case = { workspace = true }

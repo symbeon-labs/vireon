@@ -1,0 +1,55 @@
+[package]
+name = "symbiotic_method"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+repository.workspace = true
+license.workspace = true
+description = "Camada simbiótica FFI entre Rust e Python para VIREON"
+
+[lib]
+name = "symbiotic_method"
+crate-type = ["cdylib"]
+
+[dependencies]
+# Python Integration
+pyo3 = { version = "0.19.0", features = ["extension-module"] }
+
+# Core Dependencies
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+
+# Async and Concurrency
+async-trait = { workspace = true }
+futures = { workspace = true }
+parking_lot = { workspace = true }
+dashmap = { workspace = true }
+
+# Database and Time
+chrono = { workspace = true }
+uuid = { workspace = true }
+
+# Local Dependencies
+vireon_core = { path = "../vireon-core" }
+vireon_quantum = { path = "../vireon-quantum" }
+vireon_consciousness = { path = "../vireon-consciousness" }
+vireon_bridge = { path = "../vireon-bridge" }
+
+# Logging and Monitoring
+tracing-subscriber = { workspace = true }
+rand = { workspace = true }
+
+[dev-dependencies]
+pyo3-asyncio = "0.19.0"
+tokio-test = { workspace = true }
+test-case = { workspace = true }
+
+[features]
+default = ["quantum", "consciousness", "evolution"]
+quantum = []
+consciousness = []
+evolution = []

@@ -73,7 +73,8 @@ members = [
     "vireon-core",
     "vireon-consciousness",
     "vireon-bridge",
-    "vireon-quantum"
+    "vireon-quantum",
+    "symbiotic_method"
 ]
 
 [workspace.package]
@@ -105,4 +106,15 @@ criterion = "0.5"
 mockall = "0.11"
 tokio-test = "0.4"
 test-case = "3.1"
+ndarray = "0.15"
+num = "0.4"
+rand_distr = "0.4"
+metrics = "0.21"
+metrics-exporter-prometheus = "0.12"
+tracing-appender = "0.2"
+quickcheck = "1.0"
+test-log = "0.2"
+proptest = "1.2"
+fake = "2.6"
+rstest = "0.18"
 

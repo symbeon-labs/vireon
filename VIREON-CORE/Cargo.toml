@@ -35,7 +35,6 @@ tracing-appender = { workspace = true }
 # Local Dependencies
 vireon_quantum = { path = "../vireon-quantum", optional = true }
 vireon_consciousness = { path = "../vireon-consciousness", optional = true }
-vireon_realignment = { path = "../vireon-realignment", optional = true }
 
 [dev-dependencies]
 tokio-test = { workspace = true }

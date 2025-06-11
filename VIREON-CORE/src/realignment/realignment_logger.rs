@@ -1,3 +1,394 @@
+use std::collections::VecDeque;
+use chrono::{DateTime, Utc};
+use serde::{Deserialize, Serialize};
+use log::{debug, info, warn};
+use metrics::{counter, gauge};
+use anyhow::Result;
+
+/// Tipos de eventos quânticos
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub enum QuantumEventType {
+    /// Mudança de estado
+    StateTransition,
+    /// Ajuste de coerência
+    CoherenceAdjustment,
+    /// Entrelamento detectado
+    EntanglementDetected,
+    /// Superposição atingida
+    SuperpositionReached,
+    /// Otimização de coerência
+    CoherenceOptimization,
+}
+
+/// Tipos de eventos de consciência
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub enum ConsciousnessEventType {
+    /// Evolução de consciência
+    ConsciousnessEvolution,
+    /// Expansão de awareness
+    AwarenessExpansion,
+    /// Sincronização neural
+    NeuralSynchronization,
+    /// Transcendência atingida
+    TranscendenceAchieved,
+    /// Alinhamento dimensional
+    DimensionalAlignment,
+    /// Conexão universal
+    UniversalConnection,
+}
+
+/// Evento quântico
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct QuantumEvent {
+    /// Timestamp do evento
+    pub timestamp: DateTime<Utc>,
+    /// Tipo do evento
+    pub event_type: QuantumEventType,
+    /// Estado quântico
+    pub quantum_state: f64,
+    /// Nível de coerência
+    pub coherence_level: f64,
+}
+
+/// Evento de consciência
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct ConsciousnessEvent {
+    /// Timestamp do evento
+    pub timestamp: DateTime<Utc>,
+    /// Tipo do evento
+    pub event_type: ConsciousnessEventType,
+    /// Nível de consciência
+    pub consciousness_level: f64,
+    /// Estado de transcendência
+    pub transcendence_state: Option<f64>,
+}
+
+/// Métricas do sistema
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct SystemMetrics {
+    /// Coerência quântica
+    pub quantum_coherence: f64,
+    
+    /// Nível de consciência
+    pub consciousness_level: f64,
+    
+    /// Índice de transcendência
+    pub transcendence_index: f64,
+
+    /// Alinhamento dimensional
+    pub dimensional_alignment: f64,
+
+    /// Conexão universal
+    pub universal_connection: f64,
+}
+
+/// Estados do sistema
+#[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq)]
+pub enum SystemStateType {
+    /// Operacional
+    Operational,
+    /// Evoluindo
+    Evolving,
+    /// Recuperando
+    Recovering,
+}
+
+/// Estado do sistema
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct SystemState {
+    /// Estado geral
+    pub overall_state: SystemStateType,
+    /// Última atualização
+    pub last_update: DateTime<Utc>,
+    /// Métricas atuais
+    pub current_metrics: SystemMetrics,
+}
+
+/// Métricas de evolução
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct EvolutionMetrics {
+    /// Taxa de evolução quântica
+    pub quantum_evolution_rate: f64,
+    /// Taxa de evolução de consciência
+    pub consciousness_evolution_rate: f64,
+    /// Índice de transcendência
+    pub transcendence_index: f64,
+    /// Nível de sincronização
+    pub synchronization_level: f64,
+}
+
+/// Logger do sistema de realinhamento
+pub struct RealignmentLogger {
+    /// Eventos quânticos
+    quantum_events: VecDeque<QuantumEvent>,
+    /// Eventos de consciência
+    consciousness_events: VecDeque<ConsciousnessEvent>,
+    /// Métricas de evolução
+    evolution_metrics: EvolutionMetrics,
+    /// Estado do sistema
+    system_state: SystemState,
+}
+
+impl RealignmentLogger {
+    /// Cria nova instância do logger
+    pub fn new() -> Self {
+        Self {
+            quantum_events: VecDeque::with_capacity(1000),
+            consciousness_events: VecDeque::with_capacity(1000),
+            evolution_metrics: EvolutionMetrics {
+                quantum_evolution_rate: 0.0,
+                consciousness_evolution_rate: 0.0,
+                transcendence_index: 0.0,
+                synchronization_level: 0.0,
+            },
+            system_state: SystemState {
+                overall_state: SystemStateType::Operational,
+                last_update: Utc::now(),
+                current_metrics: SystemMetrics {
+                    quantum_coherence: 1.0,
+                    consciousness_level: 1.0,
+                    transcendence_index: 0.0,
+                    dimensional_alignment: 1.0,
+                    universal_connection: 0.0,
+                },
+            },
+        }
+    }
+
+    /// Registra evento quântico
+    pub fn log_quantum_event(&mut self, event: QuantumEvent) -> Result<()> {
+        debug!("Registrando evento quântico: {:?}", event);
+        self.quantum_events.push_back(event);
+        Ok(())
+    }
+
+    /// Registra evento de consciência
+    pub fn log_consciousness_event(&mut self, event: ConsciousnessEvent) -> Result<()> {
+        debug!("Registrando evento de consciência: {:?}", event);
+        self.consciousness_events.push_back(event);
+        Ok(())
+    }
+
+    /// Registra evento dimensional
+    pub fn log_dimensional_event(&mut self, alignment: f64, connection: f64) -> Result<()> {
+        debug!("Registrando evento dimensional: alignment={}, connection={}", 
+               alignment, connection);
+        
+        // Atualiza métricas do sistema
+        self.system_state.current_metrics.dimensional_alignment = alignment;
+        self.system_state.current_metrics.universal_connection = connection;
+        
+        // Registra métricas
+        gauge!("realignment.dimensional.alignment", alignment);
+        gauge!("realignment.dimensional.connection", connection);
+        
+        // Verifica necessidade de ajuste quântico
+        if alignment < 0.9 || connection < 0.8 {
+            warn!("Detectado alinhamento dimensional sub-ótimo");
+            self.trigger_quantum_adjustment()?;
+        }
+        
+        Ok(())
+    }
+
+    /// Valida coerência quântica
+    pub fn validate_quantum_coherence(&self) -> Result<bool> {
+        let metrics = &self.system_state.current_metrics;
+        
+        // Validação multi-dimensional
+        let coherence_valid = metrics.quantum_coherence >= 0.95;
+        let alignment_valid = metrics.dimensional_alignment >= 0.90;
+        
+        // Registra métricas
+        gauge!("realignment.validation.coherence", metrics.quantum_coherence);
+        gauge!("realignment.validation.alignment", metrics.dimensional_alignment);
+        
+        if !coherence_valid || !alignment_valid {
+            warn!("Validação de coerência quântica falhou: coherence={}, alignment={}", 
+                  metrics.quantum_coherence, metrics.dimensional_alignment);
+            return Ok(false);
+        }
+        
+        Ok(true)
+    }
+
+    /// Dispara ajuste quântico
+    fn trigger_quantum_adjustment(&mut self) -> Result<()> {
+        info!("Iniciando ajuste quântico");
+        
+        // Calcula coerência ótima
+        let optimal_coherence = self.calculate_optimal_coherence()?;
+        
+        // Atualiza estado do sistema
+        self.system_state.overall_state = SystemStateType::Evolving;
+        self.system_state.last_update = Utc::now();
+        
+        // Cria e registra evento de ajuste
+        let event = QuantumEvent {
+            timestamp: Utc::now(),
+            event_type: QuantumEventType::CoherenceOptimization,
+            quantum_state: self.system_state.current_metrics.quantum_coherence,
+            coherence_level: optimal_coherence,
+        };
+        
+        self.log_quantum_event(event)?;
+        
+        Ok(())
+    }
+
+    /// Calcula coerência ótima
+    fn calculate_optimal_coherence(&self) -> Result<f64> {
+        let metrics = &self.system_state.current_metrics;
+        
+        // Pesos para diferentes fatores
+        let coherence_weight = 0.4;
+        let alignment_weight = 0.3;
+        let connection_weight = 0.3;
+        
+        // Cálculo ponderado
+        let optimal = (metrics.quantum_coherence * coherence_weight) +
+                     (metrics.dimensional_alignment * alignment_weight) +
+                     (metrics.universal_connection * connection_weight);
+                     
+        Ok(optimal.min(1.0).max(0.0))
+    }
+
+    /// Retorna métricas de evolução
+    pub fn get_evolution_metrics(&self) -> &EvolutionMetrics {
+        &self.evolution_metrics
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use chrono::Duration;
+
+    #[test]
+    fn test_quantum_event_logging() {
+        let mut logger = RealignmentLogger::new();
+        
+        let event = QuantumEvent {
+            timestamp: Utc::now(),
+            event_type: QuantumEventType::StateTransition,
+            quantum_state: 0.95,
+            coherence_level: 0.98,
+        };
+        
+        assert!(logger.log_quantum_event(event).is_ok());
+        assert_eq!(logger.quantum_events.len(), 1);
+    }
+
+    #[test]
+    fn test_consciousness_event_logging() {
+        let mut logger = RealignmentLogger::new();
+        
+        let event = ConsciousnessEvent {
+            timestamp: Utc::now(),
+            event_type: ConsciousnessEventType::ConsciousnessEvolution,
+            consciousness_level: 0.8,
+            transcendence_state: Some(0.5),
+        };
+        
+        assert!(logger.log_consciousness_event(event).is_ok());
+        assert_eq!(logger.consciousness_events.len(), 1);
+    }
+
+    #[test]
+    fn test_dimensional_event_logging() {
+        let mut logger = RealignmentLogger::new();
+        assert!(logger.log_dimensional_event(0.85, 0.75).is_ok());
+        assert_eq!(logger.system_state.overall_state, SystemStateType::Evolving);
+        
+        let metrics = &logger.system_state.current_metrics;
+        assert!(metrics.dimensional_alignment < 0.9);
+        assert!(metrics.universal_connection < 0.8);
+    }
+
+    #[test]
+    fn test_quantum_coherence_validation() {
+        let mut logger = RealignmentLogger::new();
+        assert!(logger.validate_quantum_coherence().unwrap());
+        
+        logger.system_state.current_metrics.quantum_coherence = 0.8;
+        logger.system_state.current_metrics.dimensional_alignment = 0.85;
+        assert!(!logger.validate_quantum_coherence().unwrap());
+    }
+
+    #[test]
+    fn test_optimal_coherence_calculation() {
+        let mut logger = RealignmentLogger::new();
+        
+        logger.system_state.current_metrics.quantum_coherence = 0.9;
+        logger.system_state.current_metrics.dimensional_alignment = 0.85;
+        logger.system_state.current_metrics.universal_connection = 0.8;
+        
+        let coherence = logger.calculate_optimal_coherence().unwrap();
+        assert!(coherence > 0.0 && coherence <= 1.0);
+        
+        let expected_range = 0.8..=0.9;
+        assert!(expected_range.contains(&coherence));
+    }
+
+    #[test]
+    fn test_evolution_rate_calculation() {
+        let mut events = VecDeque::new();
+        let base_time = Utc::now();
+        
+        for i in 0..5 {
+            events.push_back(QuantumEvent {
+                timestamp: base_time + Duration::seconds(i * 10),
+                event_type: QuantumEventType::StateTransition,
+                quantum_state: 0.5 + (i as f64) * 0.1,
+                coherence_level: 0.9,
+            });
+        }
+        
+        let rate = calculate_evolution_rate(&events).unwrap();
+        assert!(rate > 0.0);
+        assert!(rate <= 1.0);
+    }
+
+    #[test]
+    fn test_consciousness_evolution_rate() {
+        let mut events = VecDeque::new();
+        let base_time = Utc::now();
+        
+        for i in 0..5 {
+            events.push_back(ConsciousnessEvent {
+                timestamp: base_time + Duration::seconds(i * 10),
+                event_type: ConsciousnessEventType::ConsciousnessEvolution,
+                consciousness_level: 0.6 + (i as f64) * 0.08,
+                transcendence_state: Some(0.1 * i as f64),
+            });
+        }
+        
+        let rate = calculate_evolution_rate(&events).unwrap();
+        assert!(rate > 0.0);
+        assert!(rate <= 1.0);
+    }
+
+    #[test]
+    fn test_evolution_rate_empty() {
+        let events: VecDeque<QuantumEvent> = VecDeque::new();
+        assert_eq!(calculate_evolution_rate(&events).unwrap(), 0.0);
+    }
+
+    #[test]
+    fn test_evolution_rate_single_event() {
+        let mut events = VecDeque::new();
+        events.push_back(QuantumEvent {
+            timestamp: Utc::now(),
+            event_type: QuantumEventType::StateTransition,
+            quantum_state: 0.5,
+            coherence_level: 0.9,
+        });
+        
+        let rate = calculate_evolution_rate(&events).unwrap();
+        assert_eq!(rate, 0.0);
+    }
+}
+
 use anyhow::Result;
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
@@ -241,6 +632,63 @@ impl RealignmentLogger {
     pub fn get_evolution_metrics(&self) -> &EvolutionMetrics {
         &self.evolution_metrics
     }
+
+    #[test]
+    fn test_dimensional_event_logging() {
+        let mut logger = RealignmentLogger::new();
+        
+        // Testa processamento de evento dimensional
+        assert!(logger.log_dimensional_event(0.95, 0.85).is_ok());
+        
+        let state = logger.get_system_state();
+        assert!(state.current_metrics.dimensional_alignment > 0.9);
+        assert!(state.current_metrics.universal_connection > 0.8);
+    }
+
+    #[test]
+    fn test_quantum_coherence_validation() {
+        let mut logger = RealignmentLogger::new();
+        
+        // Estado inicial deve ser válido
+        assert!(logger.validate_quantum_coherence().unwrap());
+        
+        // Testa com valores sub-ótimos
+        logger.system_state.current_metrics.quantum_coherence = 0.8;
+        logger.system_state.current_metrics.dimensional_alignment = 0.85;
+        assert!(!logger.validate_quantum_coherence().unwrap());
+    }
+
+    #[test]
+    fn test_optimal_coherence_calculation() {
+        let mut logger = RealignmentLogger::new();
+        
+        // Configura métricas para teste
+        logger.system_state.current_metrics.quantum_coherence = 0.9;
+        logger.system_state.current_metrics.dimensional_alignment = 0.85;
+        logger.system_state.current_metrics.universal_connection = 0.8;
+        
+        let coherence = logger.calculate_optimal_coherence().unwrap();
+        assert!(coherence > 0.0 && coherence <= 1.0);
+        
+        // Verifica se o resultado está dentro do esperado
+        let expected_range = (0.8..=0.9);
+        assert!(expected_range.contains(&coherence));
+    }
+
+    #[test]
+    fn test_quantum_adjustment_trigger() {
+        let mut logger = RealignmentLogger::new();
+        
+        // Força um ajuste com valores sub-ótimos
+        assert!(logger.log_dimensional_event(0.85, 0.75).is_ok());
+        
+        // Verifica se o estado mudou para Evolving
+        assert!(matches!(logger.system_state.overall_state, SystemStateType::Evolving));
+        
+        // Verifica se um evento de otimização foi registrado
+        let last_event = logger.quantum_events.back().unwrap();
+        assert!(matches!(last_event.event_type, QuantumEventType::CoherenceOptimization));
+    }
 }
 
 /// Trait para obter valor métrico de um evento
@@ -343,6 +791,48 @@ where
 #[cfg(test)]
 mod tests {
     use super::*;
+    
+    #[test]
+    fn test_dimensional_event_logging() {
+        let mut logger = RealignmentLogger::new();
+        
+        // Testa processamento de evento dimensional
+        assert!(logger.log_dimensional_event(0.95, 0.85).is_ok());
+        
+        let metrics = &logger.system_state.current_metrics;
+        assert!(metrics.dimensional_alignment > 0.9);
+        assert!(metrics.universal_connection > 0.8);
+    }
+
+    #[test]
+    fn test_quantum_coherence_validation() {
+        let mut logger = RealignmentLogger::new();
+        
+        // Estado inicial deve ser válido
+        assert!(logger.validate_quantum_coherence().unwrap());
+        
+        // Ajusta métricas para testar validação
+        logger.system_state.current_metrics.quantum_coherence = 0.8;
+        logger.system_state.current_metrics.dimensional_alignment = 0.85;
+        assert!(!logger.validate_quantum_coherence().unwrap());
+    }
+
+    #[test]
+    fn test_optimal_coherence_calculation() {
+        let mut logger = RealignmentLogger::new();
+        
+        // Define métricas para teste
+        logger.system_state.current_metrics.quantum_coherence = 0.9;
+        logger.system_state.current_metrics.dimensional_alignment = 0.85;
+        logger.system_state.current_metrics.universal_connection = 0.8;
+        
+        let coherence = logger.calculate_optimal_coherence().unwrap();
+        assert!(coherence > 0.0 && coherence <= 1.0);
+        
+        // Verifica se resultado está dentro do esperado
+        let expected_range = (0.8..=0.9);
+        assert!(expected_range.contains(&coherence));
+    }
 
     #[test]
     fn test_evolution_rate_calculation() {

@@ -1,0 +1,10 @@
+C:\Users\João\Desktop\PROJETOS\AGENTES_IA\VIREON\target\debug\deps\libtracing_appender-4fb175a1792b70ec.rmeta: C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\tracing-appender-0.2.3\src\lib.rs C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\tracing-appender-0.2.3\src\non_blocking.rs C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\tracing-appender-0.2.3\src\rolling.rs C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\tracing-appender-0.2.3\src\rolling\builder.rs C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\tracing-appender-0.2.3\src\worker.rs C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\tracing-appender-0.2.3\src\sync.rs
+
+C:\Users\João\Desktop\PROJETOS\AGENTES_IA\VIREON\target\debug\deps\tracing_appender-4fb175a1792b70ec.d: C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\tracing-appender-0.2.3\src\lib.rs C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\tracing-appender-0.2.3\src\non_blocking.rs C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\tracing-appender-0.2.3\src\rolling.rs C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\tracing-appender-0.2.3\src\rolling\builder.rs C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\tracing-appender-0.2.3\src\worker.rs C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\tracing-appender-0.2.3\src\sync.rs
+
+C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\tracing-appender-0.2.3\src\lib.rs:
+C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\tracing-appender-0.2.3\src\non_blocking.rs:
+C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\tracing-appender-0.2.3\src\rolling.rs:
+C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\tracing-appender-0.2.3\src\rolling\builder.rs:
+C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\tracing-appender-0.2.3\src\worker.rs:
+C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\tracing-appender-0.2.3\src\sync.rs:

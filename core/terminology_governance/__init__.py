@@ -3,8 +3,8 @@ from dataclasses import dataclass
 from enum import Enum
 from pathlib import Path
 
-from ..consciousness import ConsciousnessState
-from ..evolution import EvolutionarySystem
+from ..cognitive_engine import CognitiveState
+from ..evolution import EvolutionaryPattern
 
 class TerminologyViolationLevel(Enum):
     INFO = "info"
@@ -22,9 +22,9 @@ class TerminologyViolation:
     line_number: int
 
 class TerminologyGovernance:
-    def __init__(self, consciousness_state: ConsciousnessState, evolution_system: EvolutionarySystem):
-        self.consciousness_state = consciousness_state
-        self.evolution_system = evolution_system
+    def __init__(self, cognitive_state: CognitiveState = None, evolution_pattern: EvolutionaryPattern = None):
+        self.cognitive_state = cognitive_state
+        self.evolution_pattern = evolution_pattern
         self.rules = self._load_rules()
         self.violations: List[TerminologyViolation] = []
 

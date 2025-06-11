@@ -1,0 +1,12 @@
+C:\Users\João\Desktop\PROJETOS\AGENTES_IA\VIREON\target\debug\deps\libmetrics-cfa00afa2c332a3b.rmeta: C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\metrics-0.21.1\src\lib.rs C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\metrics-0.21.1\src\atomics.rs C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\metrics-0.21.1\src\common.rs C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\metrics-0.21.1\src\cow.rs C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\metrics-0.21.1\src\handles.rs C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\metrics-0.21.1\src\key.rs C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\metrics-0.21.1\src\label.rs C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\metrics-0.21.1\src\recorder.rs
+
+C:\Users\João\Desktop\PROJETOS\AGENTES_IA\VIREON\target\debug\deps\metrics-cfa00afa2c332a3b.d: C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\metrics-0.21.1\src\lib.rs C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\metrics-0.21.1\src\atomics.rs C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\metrics-0.21.1\src\common.rs C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\metrics-0.21.1\src\cow.rs C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\metrics-0.21.1\src\handles.rs C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\metrics-0.21.1\src\key.rs C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\metrics-0.21.1\src\label.rs C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\metrics-0.21.1\src\recorder.rs
+
+C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\metrics-0.21.1\src\lib.rs:
+C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\metrics-0.21.1\src\atomics.rs:
+C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\metrics-0.21.1\src\common.rs:
+C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\metrics-0.21.1\src\cow.rs:
+C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\metrics-0.21.1\src\handles.rs:
+C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\metrics-0.21.1\src\key.rs:
+C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\metrics-0.21.1\src\label.rs:
+C:\Users\João\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\metrics-0.21.1\src\recorder.rs:

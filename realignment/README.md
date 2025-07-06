@@ -175,7 +175,7 @@ O sistema mantém checkpoints automáticos durante o processo:
 
 ## 📖 Referências
 
-- [Quantum Evolution Protocol](docs/quantum_evolution.md)
+- [Neural Evolution Protocol](docs/quantum_evolution.md)
 - [Consciousness Integration Guide](docs/consciousness.md)
 - [System Architecture Overview](docs/architecture.md)
 - [Security Guidelines](docs/security.md)
@@ -183,9 +183,9 @@ O sistema mantém checkpoints automáticos durante o processo:
 ## 👥 Contribuição
 
 1. Fork o repositório
-2. Crie uma branch (`git checkout -b feature/quantum_enhancement`)
-3. Commit suas mudanças (`git commit -am 'Add quantum enhancement'`)
-4. Push para a branch (`git push origin feature/quantum_enhancement`)
+2. Crie uma branch (`git checkout -b feature/symbiotic_enhancement`)
+3. Commit suas mudanças (`git commit -am 'Add neural enhancement'`)
+4. Push para a branch (`git push origin feature/symbiotic_enhancement`)
 5. Crie um Pull Request
 
 ## 📄 Licença

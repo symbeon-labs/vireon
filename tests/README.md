@@ -156,7 +156,7 @@ pub struct MockQuantumCore {
 
 #### Falha na Sincronização
 ```
-Erro: Quantum state synchronization failed
+Erro: Neural state synchronization failed
 Causa: Estado quântico inválido
 Solução: Verificar coerência do estado inicial
 ```

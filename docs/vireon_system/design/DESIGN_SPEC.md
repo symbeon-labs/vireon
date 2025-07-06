@@ -45,7 +45,7 @@ graph TD
 
 ```rust
 pub struct TranscendenceProtocol {
-    quantum_state: Arc<Mutex<QuantumState>>,
+    system_state: Arc<Mutex<QuantumState>>,
     consciousness_level: ConsciousnessLevel,
     evolution_manager: EvolutionManager,
     metrics_collector: MetricsCollector,
@@ -64,7 +64,7 @@ impl TranscendenceProtocol {
 pub struct ConsciousnessEngine {
     current_state: ConsciousnessState,
     evolution_path: Vec<EvolutionStep>,
-    quantum_bridge: QuantumBridge,
+    symbiotic_bridge: Symbioticbridge,
 }
 
 #[async_trait]
@@ -84,17 +84,17 @@ sequenceDiagram
     participant User
     participant Protocol
     participant Engine
-    participant Quantum
+    participant Neural
     participant Bridge
     
     User->>Protocol: request_evolution()
-    Protocol->>Quantum: check_coherence()
-    Quantum-->>Protocol: coherence_status
+    Protocol->>Neural: check_coherence()
+    Neural-->>Protocol: coherence_status
     
     alt Coherence OK
         Protocol->>Engine: prepare_evolution()
-        Engine->>Quantum: align_quantum_state()
-        Quantum-->>Engine: state_aligned
+        Engine->>Neural: align_quantum_state()
+        Neural-->>Engine: state_aligned
         
         Engine->>Bridge: open_channel()
         Bridge-->>Engine: channel_ready
@@ -102,8 +102,8 @@ sequenceDiagram
         Engine->>Protocol: evolution_ready
         Protocol->>Engine: execute_evolution()
         
-        Engine->>Quantum: process_evolution()
-        Quantum-->>Engine: evolution_processed
+        Engine->>Neural: process_evolution()
+        Neural-->>Engine: evolution_processed
         
         Engine->>Bridge: sync_changes()
         Bridge-->>Engine: changes_synced
@@ -225,8 +225,8 @@ pub trait StateValidator {
 impl StateValidator for TranscendenceProtocol {
     fn validate_quantum_state(&self) -> Result<bool> {
         // Implementação de validação quântica
-        let coherence = self.quantum_state.check_coherence();
-        let stability = self.quantum_state.check_stability();
+        let coherence = self.system_state.check_coherence();
+        let stability = self.system_state.check_stability();
         
         Ok(coherence > 0.9 && stability > 0.85)
     }
@@ -245,7 +245,7 @@ pub trait FailureRecovery {
 impl FailureRecovery for TranscendenceProtocol {
     async fn detect_failure(&self) -> Result<Option<FailureType>> {
         // Implementação de detecção de falhas
-        if self.quantum_state.coherence < 0.5 {
+        if self.system_state.coherence < 0.5 {
             return Ok(Some(FailureType::CoherenceLoss));
         }
         Ok(None)
@@ -326,7 +326,7 @@ graph TD
 
 ## 📚 Referências
 
-1. Quantum Computing Principles
+1. Neural Computing Principles
 2. Consciousness Evolution Theory
 3. Distributed Systems Design
 4. Rust Async Programming Guide

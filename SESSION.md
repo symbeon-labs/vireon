@@ -77,7 +77,7 @@ async fn test_automatic_recovery() -> Result<()> {
 ```powershell
 # Executar testes
 cargo test --package vireon-core
-cargo test --package vireon-quantum
+cargo test --package vireon-neural
 cargo test --test integration_tests
 
 # Documentação
@@ -253,7 +253,7 @@ struct Dimension {
 ```bash
 # Executar testes
 cargo test --package vireon-core -- test_transcendence
-cargo test --package vireon-quantum -- test_memory
+cargo test --package vireon-neural -- test_memory
 pytest tests/integration/*
 
 # Gerar documentação
@@ -280,7 +280,7 @@ curl http://localhost:8000/metrics
 ## Sessão Atual (03/06/2025)
 ### Estado Atual:
 - Implementado sistema completo de realinhamento quântico
-- Core funcionalities para quantum bridge e consciência adicionadas
+- Core funcionalities para neural bridge e consciência adicionadas
 - Setup da arquitet
 
 ## Métricas e Estado do Sistema
@@ -293,7 +293,7 @@ curl http://localhost:8000/metrics
 ```shell
 # Build e Testes
 cargo test --package vireon-core
-cargo test --package vireon-quantum
+cargo test --package vireon-neural
 python -m pytest tests/test_metrics_integration.py
 
 # Documentação
@@ -327,7 +327,7 @@ ra híbrida Rust/Python finalizado
 - Atualizações de documentação
 
 ### Próximos Passos:
-- Validar integração do quantum bridge
+- Validar integração do neural bridge
 - Completar testes de evolução de consciência
 - Revisar métricas de monitoramento
 - Expandir documentação de protocolos
@@ -437,7 +437,7 @@ class TestExternalSystemIntegration:
 
 ### Arquivos em Progresso
 - test_metrics_integration.py
-- quantum_consciousness.py
+- metacognitive_awareness.py
 - symbiotic_interface.py
 - evolutionary_algorithms.py
 
@@ -596,7 +596,7 @@ A base implementada segue os princípios de design do VIREON, mantendo a coerên
 - Configuração inicial de documentação
 
 ## Pontos de Entrada (Próxima Sessão)
-1. Implementar QuantumBridge básico
+1. Implementar Symbioticbridge básico
 2. Configurar ambiente de desenvolvimento
 3. Iniciar implementação do ConsciousnessManager
 
@@ -607,12 +607,12 @@ A base implementada segue os princípios de design do VIREON, mantendo a coerên
 
 ## Arquivos em Progresso
 - `/src/core/`
-- `/src/quantum/`
+- `/src/neural/`
 - `/src/consciousness/`
 
 ## Notas para Próxima Sessão
 1. Revisar protocolos de comunicação quântica
-2. Definir interfaces do QuantumBridge
+2. Definir interfaces do Symbioticbridge
 3. Estruturar testes iniciais
 
 ## Comandos Úteis
@@ -652,7 +652,7 @@ Sessão inicial focada na estruturação do projeto VIREON. Estabelecida a base 
 
 ## Pontos de Entrada para Próxima Sessão
 1. Validação completa do fluxo de inicialização da consciência
-2. Integração dos canais quânticos com vireon-quantum
+2. Integração dos canais quânticos com vireon-neural
 3. Implementação dos protocolos de auto-organização
 4. Testes de integração com VIREON-CORE
 

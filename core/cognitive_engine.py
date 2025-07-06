@@ -59,7 +59,7 @@ class CognitiveEngine:
             memory_max_size=cache_size,
             default_ttl=cache_ttl
         )
-        self.quantum = QuantumLite()
+        self.neural = QuantumLite()
         self.metrics = EngineMetrics()
         self.logger = logging.getLogger("CognitiveEngine")
         
@@ -94,7 +94,7 @@ class CognitiveEngine:
                     return cached_result
 
             # Processamento quântico simplificado
-            processed_state = await self.quantum.process_state(
+            processed_state = await self.neural.process_state(
                 input_data,
                 operation_type
             )
@@ -104,7 +104,7 @@ class CognitiveEngine:
                 return None
 
             # Valida coerência
-            if not await self.quantum.validate_coherence(processed_state):
+            if not await self.neural.validate_coherence(processed_state):
                 self.logger.warning("Estado quântico incoerente detectado")
                 return None
 
@@ -133,7 +133,7 @@ class CognitiveEngine:
         try:
             await asyncio.gather(
                 self.cache.clear(),
-                self.quantum.cleanup()
+                self.neural.cleanup()
             )
             self.logger.info("Limpeza do motor cognitivo concluída")
             return True
@@ -151,7 +151,7 @@ class CognitiveEngine:
                 "quantum_usage": self.metrics.quantum_usage
             },
             "cache": self.cache.get_metrics(),
-            "quantum": self.quantum.get_metrics()
+            "neural": self.neural.get_metrics()
         }
 
     async def optimize_performance(self):

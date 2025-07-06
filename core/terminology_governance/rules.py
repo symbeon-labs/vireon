@@ -12,11 +12,11 @@ BASE_RULES = {
                 'metacognitive_process'
             ],
             'replacements': {
-                'quantum_process': 'neural_process',
-                'quantum_enhancement': 'symbiotic_enhancement',
-                'quantum_learning': 'adaptive_learning',
-                'quantum_state': 'system_state',
-                'quantum_validation': 'symbiotic_validation'
+                'neural_process': 'neural_process',
+                'symbiotic_enhancement': 'symbiotic_enhancement',
+                'adaptive_learning': 'adaptive_learning',
+                'system_state': 'system_state',
+                'symbiotic_validation': 'symbiotic_validation'
             },
             'contexts': {
                 'implementation': [
@@ -47,7 +47,7 @@ BASE_RULES = {
                 'cognitive_state'
             ],
             'replacements': {
-                'quantum_consciousness': 'metacognitive_awareness',
+                'metacognitive_awareness': 'metacognitive_awareness',
                 'quantum_mind': 'neural_mind',
                 'quantum_thinking': 'symbiotic_processing'
             },

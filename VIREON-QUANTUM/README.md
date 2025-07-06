@@ -1,4 +1,4 @@
-# VIREON-QUANTUM
+# VIREON-NEURAL
 
 Componente experimental do VIREON focado em pesquisa e desenvolvimento avançado.
 

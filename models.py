@@ -8,7 +8,7 @@ import uuid
 class ConsciousnessLevel(Enum):
     BASE = auto()
     METACOGNITIVE = auto()
-    QUANTUM = auto()
+    NEURAL = auto()
     TRANSCENDENT = auto()
 
     @property
@@ -16,7 +16,7 @@ class ConsciousnessLevel(Enum):
         awareness_map = {
             ConsciousnessLevel.BASE: "environmental",
             ConsciousnessLevel.METACOGNITIVE: "self_processes",
-            ConsciousnessLevel.QUANTUM: "quantum_states",
+            ConsciousnessLevel.NEURAL: "quantum_states",
             ConsciousnessLevel.TRANSCENDENT: "universal"
         }
         return awareness_map[self]
@@ -26,7 +26,7 @@ class ConsciousnessLevel(Enum):
         processing_map = {
             ConsciousnessLevel.BASE: "quantum_reactive",
             ConsciousnessLevel.METACOGNITIVE: "quantum_analytical",
-            ConsciousnessLevel.QUANTUM: "non_local",
+            ConsciousnessLevel.NEURAL: "non_local",
             ConsciousnessLevel.TRANSCENDENT: "holistic_quantum"
         }
         return processing_map[self]
@@ -112,7 +112,7 @@ class Rule:
         self.consciousness_level = consciousness_level
         self.content = content
         self.metadata = metadata or {}
-        self.quantum_state = QuantumState(
+        self.system_state = QuantumState(
             entanglement_level=0.1,
             coherence_state=0.1,
             superposition_factor=0.1,
@@ -135,7 +135,7 @@ class Rule:
         """Evolui a regra para um novo estado"""
         try:
             # Evolui o estado quântico
-            self.quantum_state = self.quantum_state.evolve()
+            self.system_state = self.system_state.evolve()
             
             # Atualiza métricas de evolução
             self.evolution_metrics.consciousness_depth = min(1.0, self.evolution_metrics.consciousness_depth * 1.1)
@@ -162,12 +162,12 @@ class Rule:
             'consciousness_level': self.consciousness_level.name,
             'content': self.content,
             'metadata': self.metadata,
-            'quantum_state': {
-                'entanglement_level': self.quantum_state.entanglement_level,
-                'coherence_state': self.quantum_state.coherence_state,
-                'superposition_factor': self.quantum_state.superposition_factor,
-                'quantum_signature': self.quantum_state.quantum_signature,
-                'timestamp': self.quantum_state.timestamp.isoformat()
+            'system_state': {
+                'entanglement_level': self.system_state.entanglement_level,
+                'coherence_state': self.system_state.coherence_state,
+                'superposition_factor': self.system_state.superposition_factor,
+                'quantum_signature': self.system_state.quantum_signature,
+                'timestamp': self.system_state.timestamp.isoformat()
             },
             'evolution_metrics': {
                 'consciousness_depth': self.evolution_metrics.consciousness_depth,

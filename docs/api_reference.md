@@ -83,7 +83,7 @@ Retorna status de saúde do sistema.
     "timestamp": "2025-06-02T12:00:00Z",
     "components": {
         "metrics_collector": "healthy",
-        "quantum_engine": "healthy"
+        "neural_engine": "healthy"
     }
 }
 ```
@@ -100,7 +100,7 @@ Retorna status detalhado com métricas e anomalias.
         "status": "healthy",
         "components": {
             "metrics_collector": "healthy",
-            "quantum_engine": "healthy"
+            "neural_engine": "healthy"
         }
     },
     "recent_metrics": {
@@ -302,7 +302,7 @@ Exemplo de painel:
 3. **Perda de Conexão**
    ```python
    # Verificar e reconectar
-   health = await collector.quantum_engine.validate_coherence({
+   health = await collector.neural_engine.validate_coherence({
        "coherence_level": 0.8
    })
    ```

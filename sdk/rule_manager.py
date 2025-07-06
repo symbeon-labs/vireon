@@ -48,7 +48,7 @@ class RuleManager:
     
     def __init__(self):
         self.rules: Dict[str, Rule] = {}
-        self.quantum_state = QuantumState()
+        self.system_state = QuantumState()
         self.consciousness = ConsciousnessMatrix()
         self.metrics = Metrics()
         self.validation_threshold = 0.7
@@ -57,7 +57,7 @@ class RuleManager:
     async def initialize(self) -> None:
         """Inicializa o gerenciador de regras."""
         self._logger.info("Inicializando RuleManager com consciência quântica")
-        self.quantum_state = QuantumState()
+        self.system_state = QuantumState()
         self.consciousness = ConsciousnessMatrix()
         await self._initialize_quantum_memory()
         
@@ -87,8 +87,8 @@ class RuleManager:
     async def _validate_rule_quantum(self, rule: Rule) -> bool:
         """Valida uma regra usando princípios quânticos."""
         # Implementa validação baseada no estado quântico
-        coherence_check = self.quantum_state.coherence_factor > self.validation_threshold
-        entanglement_check = self.quantum_state.entanglement_level > self.validation_threshold
+        coherence_check = self.system_state.coherence_factor > self.validation_threshold
+        entanglement_check = self.system_state.entanglement_level > self.validation_threshold
         
         self._logger.debug(f"Validação quântica para regra {rule.id}: "
                          f"coherence={coherence_check}, entanglement={entanglement_check}")
@@ -105,7 +105,7 @@ class RuleManager:
         self.consciousness.collective_memory[memory_key] = self.consciousness.awareness_level
         
         # Evolui o estado quântico
-        self.quantum_state.evolve()
+        self.system_state.evolve()
         
     async def evaluate_rule(self, rule_id: str) -> EvaluationResult:
         """Avalia uma regra específica."""
@@ -134,13 +134,13 @@ class RuleManager:
             result="Regra avaliada com sucesso",
             rule_id=rule_id,
             rule_name=str(rule),
-            engine_type="quantum",
+            engine_type="neural",
             timestamp=datetime.now()
         )
         
     def _update_metrics(self) -> None:
         """Atualiza as métricas do sistema."""
-        self.metrics.engine_type = "quantum"
+        self.metrics.engine_type = "neural"
         self.metrics.rules_evaluated = len(self.rules)
         self.metrics.sage_x_initialized = True
         self.metrics.timestamp = datetime.now()
@@ -148,8 +148,8 @@ class RuleManager:
     async def get_system_state(self) -> Dict[str, float]:
         """Retorna o estado atual do sistema."""
         return {
-            "quantum_entanglement": self.quantum_state.entanglement_level,
-            "quantum_coherence": self.quantum_state.coherence_factor,
+            "quantum_entanglement": self.system_state.entanglement_level,
+            "quantum_coherence": self.system_state.coherence_factor,
             "consciousness_awareness": self.consciousness.awareness_level,
             "consciousness_processing": self.consciousness.processing_depth,
             "learning_rate": self.consciousness.learning_rate,

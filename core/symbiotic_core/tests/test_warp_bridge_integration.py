@@ -43,8 +43,8 @@ async def test_quantum_validation(bridge):
     """Testa validação quântica de regras."""
     test_rule = WarpRule(
         rule_id="test_quantum",
-        content={"rule": "Quantum test"},
-        consciousness_level=ConsciousnessLevel.QUANTUM
+        content={"rule": "Neural test"},
+        consciousness_level=ConsciousnessLevel.NEURAL
     )
     
     # Valida regra
@@ -52,7 +52,7 @@ async def test_quantum_validation(bridge):
     assert is_valid is True
     
     # Verifica cache da validação
-    validation_key = f"quantum_validation:{test_rule.rule_id}"
+    validation_key = f"symbiotic_validation:{test_rule.rule_id}"
     validation = await bridge.redis_client.get(validation_key)
     assert validation is not None
 
@@ -125,7 +125,7 @@ async def test_consciousness_evolution(bridge):
     assert is_valid is True
     
     # Verifica evolução
-    validation_key = f"quantum_validation:{initial_rule.rule_id}"
+    validation_key = f"symbiotic_validation:{initial_rule.rule_id}"
     validation = await bridge.redis_client.get(validation_key)
     validation_data = json.loads(validation)
     

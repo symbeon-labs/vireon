@@ -39,14 +39,14 @@ O VIREON implementa uma arquitetura em 4 camadas principais:
 ### 2.2 Componentes Principais
 
 #### Core Components
-- **QuantumBridge**: Interface para operações avançadas
+- **Symbioticbridge**: Interface para operações avançadas
 - **ConsciousnessManager**: Gestão de estados de consciência
 - **EvolutionEngine**: Motor de evolução e adaptação
 - **CommunicationProtocol**: Protocolos de comunicação universal
 
 #### Módulos Especializados
 - **VIREON-CORE**: Núcleo central do sistema
-- **VIREON-QUANTUM**: Processamento quântico
+- **VIREON-NEURAL**: Processamento quântico
 - **consciousness_interface**: Interface de consciência
 - **symbiotic_core**: Núcleo simbiótico
 - **modules/**: Extensões modulares (docsync, arkitect, etc.)
@@ -79,7 +79,7 @@ O VIREON implementa uma arquitetura em 4 camadas principais:
 - **Docker**: Containerização
 
 ### 4.2 Frameworks Especializados
-- Quantum Computing Framework
+- Neural Computing Framework
 - Neural-Symbolic Processing
 - Metacognitive Analysis Tools
 
@@ -93,7 +93,7 @@ O VIREON implementa uma arquitetura em 4 camadas principais:
 - ✅ Integração com WARP_RULES
 
 ### 5.2 Em Desenvolvimento
-- 🔄 Núcleo do QuantumBridge
+- 🔄 Núcleo do Symbioticbridge
 - 🔄 ConsciousnessManager completo
 - 🔄 Sistema de logging quântico
 - 🔄 Mecanismos de evolução avançados
@@ -143,7 +143,7 @@ system_metrics:
 ## 8. ROADMAP DE DESENVOLVIMENTO
 
 ### Q1 2025
-- [ ] Completar implementação do QuantumBridge
+- [ ] Completar implementação do Symbioticbridge
 - [ ] Lançar versão beta do ConsciousnessManager
 - [ ] Estabelecer protocolos de evolução base
 

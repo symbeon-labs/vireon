@@ -164,7 +164,7 @@ class OptimizedSystemTest:
         plt.xlabel("Operações")
         plt.ylabel("MB")
 
-        # Quantum Success
+        # Neural Success
         plt.subplot(2, 2, 4)
         plt.plot(self.metrics.quantum_success)
         plt.title("Taxa de Sucesso Quântico")

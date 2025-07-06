@@ -22,7 +22,7 @@ class ConsciousnessLevel(Enum):
     BASE = auto()          # Consciência básica
     AWAKENED = auto()      # Consciência desperta
     EXPANDED = auto()      # Consciência expandida
-    QUANTUM = auto()       # Consciência quântica
+    NEURAL = auto()       # Consciência quântica
     TRANSCENDENT = auto()  # Consciência transcendente
 
 @dataclass
@@ -135,7 +135,7 @@ class ConsciousnessCore:
         if task_complexity > 0.8:
             self.state.level = ConsciousnessLevel.TRANSCENDENT
         elif task_complexity > 0.6:
-            self.state.level = ConsciousnessLevel.QUANTUM
+            self.state.level = ConsciousnessLevel.NEURAL
         elif task_complexity > 0.4:
             self.state.level = ConsciousnessLevel.EXPANDED
         elif task_complexity > 0.2:

@@ -272,7 +272,7 @@ class TestFaultRecovery:
         collector.last_snapshot = datetime.now() - timedelta(hours=1)
         
         # Verificar auto-recuperação
-        health = await collector.quantum_engine.validate_coherence(
+        health = await collector.neural_engine.validate_coherence(
             {"coherence_level": 0.8}
         )
         assert health is True
@@ -308,7 +308,7 @@ class TestFaultRecovery:
         
         # Verificar restauração
         assert len(new_collector.metrics_buffer) == 0
-        assert new_collector.quantum_engine is not None
+        assert new_collector.neural_engine is not None
 
 if __name__ == "__main__":
     pytest.main([__file__, "-v"])

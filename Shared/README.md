@@ -1,6 +1,6 @@
 # Shared Components
 
-Componentes compartilhados entre VIREON-CORE e VIREON-QUANTUM.
+Componentes compartilhados entre VIREON-CORE e VIREON-NEURAL.
 
 ## Estrutura
 

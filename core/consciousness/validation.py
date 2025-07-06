@@ -52,11 +52,11 @@ class SymbioticValidator:
     def suggest_replacement(self, term: str) -> Optional[str]:
         """Sugere substituições para termos inadequados"""
         replacements = {
-            'quantum_process': 'neural_process',
-            'quantum_state': 'neural_state',
-            'quantum_bridge': 'neural_bridge',
+            'neural_process': 'neural_process',
+            'system_state': 'neural_state',
+            'symbiotic_bridge': 'neural_bridge',
             'quantum_interface': 'neural_interface',
-            'quantum_consciousness': 'metacognitive_consciousness',
+            'metacognitive_awareness': 'metacognitive_consciousness',
             'quantum_evolution': 'symbiotic_evolution'
         }
         return replacements.get(term)
@@ -67,7 +67,7 @@ class SymbioticValidator:
         with open(file_path, 'r', encoding='utf-8') as f:
             for i, line in enumerate(f, 1):
                 for term in line.split():
-                    if 'quantum' in term.lower():
+                    if 'neural' in term.lower():
                         replacement = self.suggest_replacement(term.lower())
                         if replacement:
                             violations.append({

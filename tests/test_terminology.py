@@ -37,19 +37,19 @@ def test_rule_loading(rule_manager):
 def test_term_detection(analyzer):
     """Testa detecção de termos proibidos"""
     test_content = """
-    def quantum_process():
-        return quantum_enhancement()
+    def neural_process():
+        return symbiotic_enhancement()
     """
     
     violations = analyzer.analyze_file(Mock(spec=Path, read_text=lambda encoding: test_content))
     assert len(violations) == 2
-    assert any(v.term == 'quantum_process' for v in violations)
-    assert any(v.term == 'quantum_enhancement' for v in violations)
+    assert any(v.term == 'neural_process' for v in violations)
+    assert any(v.term == 'symbiotic_enhancement' for v in violations)
 
 def test_correction_suggestion(corrector):
     """Testa sugestões de correção"""
     violation = TerminologyViolation(
-        term='quantum_process',
+        term='neural_process',
         context='implementation',
         suggestion='neural_process',
         level=TerminologyViolationLevel.ERROR,
@@ -67,7 +67,7 @@ async def test_project_integration(integration_manager):
     """Testa integração de projeto"""
     test_files = [
         Mock(spec=Path, suffix='.py', parts=['test.py'],
-             read_text=lambda encoding: 'def quantum_process(): pass')
+             read_text=lambda encoding: 'def neural_process(): pass')
     ]
     
     with patch('pathlib.Path.rglob') as mock_rglob:
@@ -82,7 +82,7 @@ def test_context_detection(analyzer):
     """Testa detecção de contexto"""
     test_content = """
     # Documentation
-    This is a quantum process implementation.
+    This is a neural process implementation.
     """
     
     violations = analyzer.analyze_file(Mock(spec=Path, read_text=lambda encoding: test_content))
@@ -92,8 +92,8 @@ def test_context_detection(analyzer):
 def test_violation_levels(analyzer):
     """Testa níveis de violação"""
     test_content = """
-    quantum_process()
-    quantum_consciousness()
+    neural_process()
+    metacognitive_awareness()
     """
     
     violations = analyzer.analyze_file(Mock(spec=Path, read_text=lambda encoding: test_content))
@@ -104,7 +104,7 @@ async def test_pr_validation(integration_manager):
     """Testa validação de PR"""
     test_files = [
         Mock(spec=Path, suffix='.py',
-             read_text=lambda encoding: 'def quantum_process(): pass')
+             read_text=lambda encoding: 'def neural_process(): pass')
     ]
     
     report = await integration_manager.validate_pr(test_files)

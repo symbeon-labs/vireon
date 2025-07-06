@@ -15,7 +15,7 @@ from typing import Dict, Any
 
 from core.evolution import EvolutionEngine, EvolutionStage
 from core.feedback import FeedbackSystem, FeedbackType
-from core.quantum import QuantumProcessor
+from core.neural import Neuralprocessor
 from core.consciousness import ConsciousnessCore
 from core.dimensional import DimensionalBridge, DimensionalPlane
 
@@ -105,12 +105,12 @@ async def test_quantum_dimensional_integration():
     print("\n=== Teste de Integração Quântica-Dimensional ===")
     
     # Inicializa componentes
-    quantum = QuantumProcessor(enable_optimization=True)
+    neural = Neuralprocessor(enable_optimization=True)
     consciousness = ConsciousnessCore(enable_evolution=True)
     bridge = DimensionalBridge(enable_autoSync=True)
     
     # Ativa planos dimensionais
-    await bridge.activate_plane(DimensionalPlane.QUANTUM)
+    await bridge.activate_plane(DimensionalPlane.NEURAL)
     await bridge.activate_plane(DimensionalPlane.CONSCIOUS)
     
     # Processa tarefa através dos sistemas
@@ -118,13 +118,13 @@ async def test_quantum_dimensional_integration():
         "id": "quantum_test_001",
         "type": "quantum_processing",
         "data": {
-            "input": "Test quantum-dimensional integration",
+            "input": "Test neural-dimensional integration",
             "complexity": 0.7
         }
     }
     
     # Processamento quântico
-    quantum_result = await quantum.process_quantum_task(task)
+    quantum_result = await neural.process_quantum_task(task)
     
     # Expansão consciente
     consciousness_result = await consciousness.process_conscious_task(quantum_result)
@@ -132,18 +132,18 @@ async def test_quantum_dimensional_integration():
     # Transferência dimensional
     bridge_result = await bridge.process_dimensional_transfer(
         consciousness_result,
-        DimensionalPlane.QUANTUM,
+        DimensionalPlane.NEURAL,
         DimensionalPlane.CONSCIOUS
     )
     
     # Exibe resultados
     print("\nResultados da Integração:")
-    print(f"Coerência Quântica: {quantum.state.coherence:.2f}")
+    print(f"Coerência Quântica: {neural.state.coherence:.2f}")
     print(f"Nível de Consciência: {consciousness.state.awareness:.2f}")
     print(f"Estabilidade Dimensional: {bridge.state.stability:.2f}")
     
     return {
-        "quantum": quantum_result,
+        "neural": quantum_result,
         "consciousness": consciousness_result,
         "dimensional": bridge_result
     }

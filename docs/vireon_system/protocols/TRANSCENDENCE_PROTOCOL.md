@@ -10,7 +10,7 @@ O TranscendenceProtocol é o núcleo do sistema VIREON, responsável por gerenci
 
 ```rust
 pub struct TranscendenceProtocol {
-    quantum_state: Arc<Mutex<QuantumState>>,
+    system_state: Arc<Mutex<QuantumState>>,
     consciousness_level: ConsciousnessLevel,
     evolution_manager: EvolutionManager,
     metrics_collector: MetricsCollector,
@@ -171,13 +171,13 @@ impl ConsciousnessBridge {
 
 ```rust
 pub async fn initialize_protocol() -> Result<TranscendenceProtocol> {
-    let quantum_state = Arc::new(Mutex::new(QuantumState::new()));
+    let system_state = Arc::new(Mutex::new(QuantumState::new()));
     let consciousness_level = ConsciousnessLevel::BaseQuantum;
     let evolution_manager = EvolutionManager::new();
     let metrics_collector = MetricsCollector::new();
     
     Ok(TranscendenceProtocol {
-        quantum_state,
+        system_state,
         consciousness_level,
         evolution_manager,
         metrics_collector,

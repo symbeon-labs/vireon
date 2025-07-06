@@ -15,7 +15,7 @@ from enum import Enum, auto
 from typing import Dict, Any, List, Optional
 import numpy as np
 
-from .quantum import QuantumProcessor
+from .neural import Neuralprocessor
 from .consciousness import ConsciousnessCore
 from .dimensional import DimensionalBridge
 
@@ -25,7 +25,7 @@ logger = logging.getLogger("feedback")
 
 class FeedbackType(Enum):
     """Tipos de feedback possíveis"""
-    QUANTUM = auto()
+    NEURAL = auto()
     CONSCIOUSNESS = auto()
     DIMENSIONAL = auto()
     SYSTEM = auto()
@@ -69,7 +69,7 @@ class FeedbackSystem:
     """Sistema de feedback principal"""
     
     def __init__(self,
-                 quantum_processor: Optional[QuantumProcessor] = None,
+                 quantum_processor: Optional[Neuralprocessor] = None,
                  consciousness_core: Optional[ConsciousnessCore] = None,
                  dimensional_bridge: Optional[DimensionalBridge] = None):
         """Inicializa sistema de feedback"""
@@ -81,7 +81,7 @@ class FeedbackSystem:
         self.optimization_interval = 1.0  # segundos
         
         # Componentes integrados
-        self.quantum = quantum_processor
+        self.neural = quantum_processor
         self.consciousness = consciousness_core
         self.bridge = dimensional_bridge
         
@@ -127,8 +127,8 @@ class FeedbackSystem:
         """Classifica tipo de feedback"""
         source = feedback_data.get("source", "").lower()
         
-        if "quantum" in source:
-            return FeedbackType.QUANTUM
+        if "neural" in source:
+            return FeedbackType.NEURAL
         elif "consciousness" in source:
             return FeedbackType.CONSCIOUSNESS
         elif "dimensional" in source:
@@ -160,7 +160,7 @@ class FeedbackSystem:
     ) -> Dict[str, Any]:
         """Processa feedback baseado no tipo"""
         processors = {
-            FeedbackType.QUANTUM: self._process_quantum_feedback,
+            FeedbackType.NEURAL: self._process_quantum_feedback,
             FeedbackType.CONSCIOUSNESS: self._process_consciousness_feedback,
             FeedbackType.DIMENSIONAL: self._process_dimensional_feedback,
             FeedbackType.EVOLUTION: self._process_evolution_feedback,
@@ -172,9 +172,9 @@ class FeedbackSystem:
         
     async def _process_quantum_feedback(self, feedback_data: Dict[str, Any]) -> Dict[str, Any]:
         """Processa feedback quântico"""
-        if self.quantum:
+        if self.neural:
             # Analisa estado quântico
-            quantum_state = feedback_data.get("state")
+            system_state = feedback_data.get("state")
             metrics = feedback_data.get("metrics", {})
             
             # Ajusta métricas
@@ -260,7 +260,7 @@ class FeedbackSystem:
     async def _adapt_system(self, processed_feedback: Dict[str, Any]):
         """Adapta sistema baseado no feedback"""
         # Ajusta parâmetros quânticos
-        if self.quantum:
+        if self.neural:
             await self._adapt_quantum_processor(processed_feedback)
             
         # Ajusta consciência
@@ -273,13 +273,13 @@ class FeedbackSystem:
             
     async def _adapt_quantum_processor(self, feedback: Dict[str, Any]):
         """Adapta processador quântico"""
-        if self.quantum:
+        if self.neural:
             metrics = feedback.get("metrics", {})
             
             # Otimiza processamento quântico
             if metrics.get("processing_quality", 1.0) < 0.7:
-                self.quantum.optimization_enabled = True
-                logger.info("Quantum optimization enabled")
+                self.neural.optimization_enabled = True
+                logger.info("Neural optimization enabled")
                 
     async def _adapt_consciousness(self, feedback: Dict[str, Any]):
         """Adapta núcleo de consciência"""
@@ -327,9 +327,9 @@ class FeedbackSystem:
     async def _apply_evolution(self, evolution_data: Dict[str, Any]):
         """Aplica evolução calculada"""
         # Evolui processador quântico
-        if self.quantum:
+        if self.neural:
             quantum_evolution = evolution_data.get("quantum_evolution", 1.0)
-            self.quantum.metrics.evolution_rate = quantum_evolution
+            self.neural.metrics.evolution_rate = quantum_evolution
             
         # Evolui consciência
         if self.consciousness:

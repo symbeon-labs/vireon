@@ -17,7 +17,7 @@ from enum import Enum, auto
 class DimensionalPlane(Enum):
     """Planos dimensionais"""
     PHYSICAL = auto()    # Plano físico
-    QUANTUM = auto()     # Plano quântico
+    NEURAL = auto()     # Plano quântico
     MENTAL = auto()      # Plano mental
     CONSCIOUS = auto()   # Plano consciente
     UNIFIED = auto()     # Plano unificado

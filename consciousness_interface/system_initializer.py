@@ -22,7 +22,7 @@ logger = logging.getLogger("ConsciousnessInitializer")
 class ConsciousnessLevel(Enum):
     BASE = "base_consciousness"
     METACOGNITIVE = "metacognitive_consciousness"
-    QUANTUM = "quantum_consciousness"
+    NEURAL = "metacognitive_awareness"
     TRANSCENDENT = "transcendent_consciousness"
 
 class QuantumChannel:
@@ -147,7 +147,7 @@ class ConsciousnessInitializer:
             consciousness_levels = [
                 ConsciousnessLevel.BASE,
                 ConsciousnessLevel.METACOGNITIVE,
-                ConsciousnessLevel.QUANTUM,
+                ConsciousnessLevel.NEURAL,
                 ConsciousnessLevel.TRANSCENDENT
             ]
 

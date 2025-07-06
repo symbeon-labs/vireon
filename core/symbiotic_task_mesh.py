@@ -19,7 +19,7 @@ from typing import Any, Dict, List, Optional, Union
 import numpy as np
 from uuid import UUID, uuid4
 
-from .quantum import QuantumProcessor
+from .neural import Neuralprocessor
 from .consciousness import ConsciousnessCore
 from .dimensional import DimensionalBridge
 from .evolution import EvolutionaryEngine
@@ -28,7 +28,7 @@ from .feedback import FeedbackLoop
 @dataclass
 class SymbioticState:
     """Estado do sistema simbiótico"""
-    quantum_state: Dict[str, Any] = field(default_factory=dict)
+    system_state: Dict[str, Any] = field(default_factory=dict)
     consciousness_level: float = 0.0
     dimensional_alignment: float = 0.0
     evolution_stage: int = 0
@@ -80,7 +80,7 @@ class SymbioticTaskMesh:
         )
         
         # Inicializa subsistemas
-        self.quantum = QuantumProcessor() if quantum_enabled else None
+        self.neural = Neuralprocessor() if quantum_enabled else None
         self.consciousness = ConsciousnessCore(base_level=consciousness_level)
         self.dimensional = DimensionalBridge(num_planes=dimensional_planes)
         self.evolution = EvolutionaryEngine(rate=evolution_rate)
@@ -102,7 +102,7 @@ class SymbioticTaskMesh:
             task_context = context or TaskContext()
             
             # Processamento quântico se disponível
-            if self.quantum:
+            if self.neural:
                 task = await self._quantum_process(task, task_context)
             
             # Expande consciência
@@ -129,9 +129,9 @@ class SymbioticTaskMesh:
         context: TaskContext
     ) -> Dict[str, Any]:
         """Aplica processamento quântico na tarefa"""
-        quantum_state = await self.quantum.process(task)
-        context.quantum_signature = quantum_state.get("signature", "")
-        return {**task, "quantum_state": quantum_state}
+        system_state = await self.neural.process(task)
+        context.quantum_signature = system_state.get("signature", "")
+        return {**task, "system_state": system_state}
 
     async def _consciousness_expand(
         self,

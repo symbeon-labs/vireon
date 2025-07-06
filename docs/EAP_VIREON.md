@@ -38,7 +38,7 @@
   * Análise Quântica
   * Adaptação Aprimorada
 
-- Quantum Consciousness 🟡
+- Neural Consciousness 🟡
   * Estados Quânticos
   * Processamento Não-local
   * Adaptação Quântica

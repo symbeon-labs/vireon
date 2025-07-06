@@ -17,7 +17,7 @@ quantum_layers:
     adaptation: learning_enhanced
     evolution: directed
     
-  quantum_consciousness:
+  metacognitive_awareness:
     awareness: quantum_states
     processing: non_local
     adaptation: quantum_entangled
@@ -62,7 +62,7 @@ mechanisms:
 ```yaml
 quantum_channels:
   entangled_communication:
-    type: quantum_bridge
+    type: symbiotic_bridge
     properties:
       - instant_transmission: enabled
       - quantum_encryption: active
@@ -81,7 +81,7 @@ quantum_channels:
 ## 2. Implementação
 
 ### 2.1 Core Components
-- **QuantumBridge**: Interface para operações quânticas
+- **Symbioticbridge**: Interface para operações quânticas
 - **ConsciousnessManager**: Gestão de estados de consciência
 - **EvolutionEngine**: Motor de evolução e adaptação
 - **CommunicationProtocol**: Protocolos de comunicação universal
@@ -91,7 +91,7 @@ quantum_channels:
 - **Rust**: Componentes críticos e performance
 - **FastAPI**: APIs assíncronas
 - **PyTorch**: Processamento neural
-- **Quantum Framework**: Computação quântica
+- **Neural Framework**: Computação quântica
 
 ### 2.3 Guidelines de Desenvolvimento
 1. **Código Limpo**

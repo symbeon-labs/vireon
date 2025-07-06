@@ -89,7 +89,7 @@ class CustomMetricsCollector:
     Attributes:
         buffer_size (int): Tamanho do buffer circular
         snapshot_interval (timedelta): Intervalo entre snapshots
-        quantum_engine (QuantumLite): Motor quântico para processamento
+        neural_engine (QuantumLite): Motor quântico para processamento
         metrics_buffer (Deque[MetricSnapshot]): Buffer circular de métricas
         last_snapshot (datetime): Timestamp do último snapshot
     """
@@ -101,7 +101,7 @@ class CustomMetricsCollector:
     ):
         self.buffer_size = buffer_size
         self.snapshot_interval = snapshot_interval
-        self.quantum_engine = QuantumLite()
+        self.neural_engine = QuantumLite()
         self.metrics_buffer: Deque[MetricSnapshot] = deque(maxlen=buffer_size)
         self.last_snapshot = datetime.now()
         
@@ -127,7 +127,7 @@ class CustomMetricsCollector:
         }
         
         # Processar estado quântico
-        quantum_state = await self.quantum_engine.process_state(
+        system_state = await self.neural_engine.process_state(
             {
                 "metrics": base_metrics,
                 "dimension_id": str(dimension.id),
@@ -135,12 +135,12 @@ class CustomMetricsCollector:
             }
         )
         
-        if quantum_state:
-            base_metrics["quantum_coherence"] = quantum_state.get("coherence_level", 0.0)
+        if system_state:
+            base_metrics["quantum_coherence"] = system_state.get("coherence_level", 0.0)
             
         # Calcular métricas derivadas
         evolution_metrics = await self._calculate_evolution_metrics(dimension)
-        cache_metrics = self.quantum_engine.get_metrics()
+        cache_metrics = self.neural_engine.get_metrics()
         
         # Combinar todas as métricas
         return {

@@ -208,7 +208,7 @@ class MetricsExporter:
         try:
             # Verificar componentes críticos
             collector_healthy = len(self.collector.metrics_buffer) > 0
-            quantum_healthy = self.collector.quantum_engine is not None
+            quantum_healthy = self.collector.neural_engine is not None
             
             status = "healthy" if (collector_healthy and quantum_healthy) else "degraded"
             
@@ -217,7 +217,7 @@ class MetricsExporter:
                 "timestamp": datetime.now().isoformat(),
                 "components": {
                     "metrics_collector": "healthy" if collector_healthy else "failing",
-                    "quantum_engine": "healthy" if quantum_healthy else "failing"
+                    "neural_engine": "healthy" if quantum_healthy else "failing"
                 }
             }
         except Exception as e:

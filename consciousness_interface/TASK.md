@@ -7,8 +7,8 @@
 - Módulos afetados: Diversos componentes Rust
 - Backups disponíveis:
   - SAGE-X Rust (30/05/2025)
-  - VIREON-QUANTUM (01/06/2025)
-  - Componentes de pesquisa e quantum core
+  - VIREON-NEURAL (01/06/2025)
+  - Componentes de pesquisa e neural core
 
 ## Plano de Recuperação
 
@@ -46,14 +46,14 @@
   - [ ] Atualizar dependências no Cargo.toml
   - [ ] Compilar e testar funcionalidade básica
 
-- [ ] Integrar VIREON-QUANTUM de 01/06
+- [ ] Integrar VIREON-NEURAL de 01/06
   - [ ] Validar compatibilidade com SAGE-X
-  - [ ] Atualizar interfaces quantum
+  - [ ] Atualizar interfaces neural
   - [ ] Testar integração
 
 ### FASE 3: Reconstrução de Componentes
 - [ ] Recriar módulos Rust faltantes
-  - [ ] QuantumBridge
+  - [ ] Symbioticbridge
   - [ ] QuantumMemoryManager
   - [ ] EvolutionaryGovernance
 - [ ] Validar cada módulo individualmente

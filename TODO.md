@@ -1,7 +1,7 @@
 # TODO List - VIREON
 
 ## Prioridade Alta
-- [ ] Implementar núcleo do QuantumBridge
+- [ ] Implementar núcleo do Symbioticbridge
 - [ ] Desenvolver estrutura base do ConsciousnessManager
 - [ ] Configurar sistema de logging quântico
 - [ ] Estabelecer protocolos de comunicação base
@@ -20,11 +20,11 @@
 - [ ] Criar interfaces de consciência
 - [ ] Estabelecer protocolos de evolução
 
-### Quantum
+### Neural
 - [ ] Configurar bridge quântica
 - [ ] Implementar entanglement manager
-- [ ] Desenvolver quantum state handler
-- [ ] Criar quantum memory system
+- [ ] Desenvolver neural state handler
+- [ ] Criar neural memory system
 
 ### Consciousness
 - [ ] Implementar níveis de consciência

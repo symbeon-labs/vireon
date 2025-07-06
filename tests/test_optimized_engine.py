@@ -84,15 +84,15 @@ class PerformanceTest:
         success_count = 0
 
         for item in test_data:
-            result = await self.engine.quantum.process_state(
+            result = await self.engine.neural.process_state(
                 item,
                 operation_type="test"
             )
-            if result and await self.engine.quantum.validate_coherence(result):
+            if result and await self.engine.neural.validate_coherence(result):
                 success_count += 1
 
         # Coleta métricas
-        quantum_stats = self.engine.quantum.get_metrics()
+        quantum_stats = self.engine.neural.get_metrics()
         success_rate = success_count / len(test_data)
         self.metrics["quantum_success"].append(success_rate)
         self.metrics["latency"].append(time.time() - start_time)

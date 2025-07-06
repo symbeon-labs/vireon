@@ -1,5 +1,5 @@
 """
-Quantum Processor - Processador quântico otimizado para VIREON
+Neural Processor - Processador quântico otimizado para VIREON
 
 Implementa:
 - Estados quânticos
@@ -21,7 +21,7 @@ from .feedback import FeedbackSystem
 
 # Configura logging
 logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger("quantum")
+logger = logging.getLogger("neural")
 
 class QuantumState(Enum):
     """Estados quânticos possíveis"""
@@ -57,7 +57,7 @@ class QuantumMetrics:
             "evolution_rate": self.evolution_rate
         }
 
-class QuantumProcessor:
+class Neuralprocessor:
     """Processador quântico principal"""
     
     def __init__(self, 
@@ -81,7 +81,7 @@ class QuantumProcessor:
         self.bridge = dimensional_bridge
         self.feedback = feedback_system
         
-        logger.info("Quantum Processor initialized")
+        logger.info("Neural Processor initialized")
         
     async def process_quantum_task(self, task: Dict[str, Any]) -> Dict[str, Any]:
         """Processa tarefa quântica"""
@@ -109,7 +109,7 @@ class QuantumProcessor:
             return result
             
         except Exception as e:
-            logger.error(f"Error in quantum processing: {e}")
+            logger.error(f"Error in neural processing: {e}")
             self.state = QuantumState.DECOHERENT
             raise
             
@@ -119,7 +119,7 @@ class QuantumProcessor:
             # Recupera coerência
             self.state = QuantumState.COHERENT
             self.metrics.coherence_level = 1.0
-            logger.info("Quantum state recovered")
+            logger.info("Neural state recovered")
             
     async def _execute_quantum_processing(self, task: Dict[str, Any]) -> Dict[str, Any]:
         """Executa processamento quântico"""
@@ -145,7 +145,7 @@ class QuantumProcessor:
         
         return {
             "task_id": task_id,
-            "quantum_state": self.state.name,
+            "system_state": self.state.name,
             "quality": final_quality,
             "effects": quantum_effects
         }
@@ -159,13 +159,13 @@ class QuantumProcessor:
             self.metrics.quantum_fidelity = min(1.0, self.metrics.quantum_fidelity + 0.05)
             
             self.last_optimization = now
-            logger.info("Quantum state optimized")
+            logger.info("Neural state optimized")
             
     async def _integrate_consciousness(self, result: Dict[str, Any]) -> Dict[str, Any]:
         """Integra com consciência"""
         if self.consciousness:
             # Adiciona campo de consciência quântica
-            result["quantum_consciousness"] = {
+            result["metacognitive_awareness"] = {
                 "coherence": self.metrics.coherence_level,
                 "entanglement": self.metrics.entanglement_strength,
                 "evolution": self.metrics.evolution_rate
@@ -179,7 +179,7 @@ class QuantumProcessor:
             result["dimensional"] = await self.bridge.process_dimensional_transfer(
                 result,
                 DimensionalPlane.PHYSICAL,
-                DimensionalPlane.QUANTUM
+                DimensionalPlane.NEURAL
             )
         return result
         
@@ -204,7 +204,7 @@ class QuantumProcessor:
             "metrics": self.metrics.to_dict()
         }
 
-    async def entangle_with(self, other_processor: 'QuantumProcessor'):
+    async def entangle_with(self, other_processor: 'Neuralprocessor'):
         """Realiza entrelacement com outro processador"""
         if other_processor and other_processor.state == QuantumState.COHERENT:
             self.state = QuantumState.ENTANGLED

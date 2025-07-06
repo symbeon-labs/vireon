@@ -42,7 +42,7 @@ class StructureValidator:
                 "docs",
                 "examples"
             ],
-            "VIREON-QUANTUM": [
+            "VIREON-NEURAL": [
                 "research/quantum_protocols",
                 "research/consciousness",
                 "research/evolution",
@@ -97,7 +97,7 @@ class StructureValidator:
         return success
     
     def validate_quantum_components(self) -> bool:
-        """Valida componentes do VIREON-QUANTUM."""
+        """Valida componentes do VIREON-NEURAL."""
         required_files = [
             "research/quantum_protocols/bridge.rs",
             "research/consciousness/evolution.py",
@@ -107,12 +107,12 @@ class StructureValidator:
         ]
         
         success = True
-        quantum_path = self.base_path / "VIREON-QUANTUM"
+        quantum_path = self.base_path / "VIREON-NEURAL"
         
         for file_path in required_files:
             full_path = quantum_path / file_path
             if not full_path.exists():
-                self.warnings.append(f"Arquivo quantum {file_path} não encontrado")
+                self.warnings.append(f"Arquivo neural {file_path} não encontrado")
                 # Não falha para componentes experimentais
         
         return success
@@ -120,7 +120,7 @@ class StructureValidator:
     def validate_shared_components(self) -> bool:
         """Valida componentes compartilhados."""
         required_files = [
-            "interfaces/quantum_bridge.py",
+            "interfaces/symbiotic_bridge.py",
             "utils/common.py",
             "config/settings.py"
         ]
@@ -147,13 +147,13 @@ class StructureValidator:
                 content = f.read()
                 
             # Verificar imports inválidos
-            if "quantum" in str(file_path):
+            if "neural" in str(file_path):
                 if "VIREON-CORE" in content:
-                    self.warnings.append(f"Arquivo quantum {file_path} importa componentes core")
+                    self.warnings.append(f"Arquivo neural {file_path} importa componentes core")
                     
             if "core" in str(file_path):
-                if "VIREON-QUANTUM" in content:
-                    self.errors.append(f"Arquivo core {file_path} importa componentes quantum")
+                if "VIREON-NEURAL" in content:
+                    self.errors.append(f"Arquivo core {file_path} importa componentes neural")
                     success = False
         
         return success
@@ -164,7 +164,7 @@ class StructureValidator:
         
         config_files = {
             "VIREON-CORE/src/config.py": ["CORE_CONFIG"],
-            "VIREON-QUANTUM/research/config.py": ["QUANTUM_CONFIG"],
+            "VIREON-NEURAL/research/config.py": ["QUANTUM_CONFIG"],
             "Shared/config/settings.py": ["SHARED_CONFIG"]
         }
         
@@ -192,7 +192,7 @@ class StructureValidator:
         validations = [
             (self.validate_directory_structure, "Estrutura de diretórios"),
             (self.validate_core_components, "Componentes Core"),
-            (self.validate_quantum_components, "Componentes Quantum"),
+            (self.validate_quantum_components, "Componentes Neural"),
             (self.validate_shared_components, "Componentes Compartilhados"),
             (self.validate_dependencies, "Dependências"),
             (self.validate_configuration, "Configuração")

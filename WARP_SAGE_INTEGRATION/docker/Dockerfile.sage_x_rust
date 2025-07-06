@@ -1,0 +1,54 @@
+# Dockerfile para o componente SAGE-X Rust Module
+FROM rust:1.72-slim as builder
+
+# Metadados
+LABEL maintainer="SAGE-X Team (sage-x at example.com)"
+LABEL version="1.0.0"
+LABEL description="SAGE-X Rust Module com integração WARP_RULES"
+
+# Diretório de trabalho
+WORKDIR /usr/src/sage_x_rust_module
+
+# Instala dependências de compilação
+RUN apt-get update && apt-get install -y \
+    pkg-config \
+    libssl-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copia o arquivo de configuração Cargo primeiro para cache de dependências
+COPY rust/sage_x_rust_module/Cargo.toml .
+COPY rust/sage_x_rust_module/Cargo.lock .
+
+# Cria diretório src vazio para pré-compilação de dependências
+RUN mkdir -p src && touch src/lib.rs && touch src/main.rs
+
+# Compila as dependências para cache (só reconstruirá se Cargo.toml mudar)
+RUN cargo build --release
+
+# Remove os arquivos temporários
+RUN rm -rf src
+
+# Copia o código fonte real
+COPY rust/sage_x_rust_module/src src
+
+# Compila a aplicação final
+RUN cargo build --release
+
+# Imagem final, mais leve
+FROM debian:bullseye-slim
+
+# Copia os binários compilados da imagem builder
+COPY --from=builder /usr/src/sage_x_rust_module/target/release/sage_x_rust_module /usr/local/bin/
+
+# Variáveis de ambiente
+ENV WARP_API_URL=http://warp_rules:8001
+ENV CLIENT_ID=sage_x_rust_agent
+ENV CLIENT_SECRET=agent_secret
+ENV AGENT_ID=sage_x_001
+ENV EON_API_URL=http://eon_framework:8000/api/task
+
+# Expõe portas, se necessário
+# EXPOSE 8002
+
+# Comando para iniciar a aplicação
+CMD ["sage_x_rust_module"]

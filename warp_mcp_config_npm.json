@@ -1,0 +1,28 @@
+﻿{
+  "mcpServers": {
+    "guardrive-devops": {
+      "command": "npm",
+      "args": ["start"],
+      "cwd": "C:\\Users\\João\\Desktop\\PROJETOS\\GUARDRIVE-ORG\\GUARDRIVE-MCP\\devops-orchestrator",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "guardrive-monitor": {
+      "command": "npm",
+      "args": ["start"],
+      "cwd": "C:\\Users\\João\\Desktop\\PROJETOS\\GUARDRIVE-ORG\\GUARDRIVE-MCP\\system-monitor",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    },
+    "guardrive-core": {
+      "command": "npm",
+      "args": ["start"],
+      "cwd": "C:\\Users\\João\\Desktop\\PROJETOS\\GUARDRIVE-ORG\\GUARDRIVE-MCP\\guardrive-mcp-core",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  }
+}

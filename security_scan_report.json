@@ -1,0 +1,8 @@
+[
+  {
+    "file": ".\\sdk\\example.py",
+    "line": 38,
+    "type": "password",
+    "match": "password=\"vireon_demo\""
+  }
+]

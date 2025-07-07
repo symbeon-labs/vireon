@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIREON - Connect all your AI tools with one API</title>
+    <meta name="description" content="Stop switching between GitHub Copilot, Claude, and ChatGPT. VIREON unifies all AI tools in one simple API. Ship faster.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --success: #10b981;
+            --bg-primary: #000000;
+            --bg-secondary: #0a0a0a;
+            --bg-tertiary: #111111;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --border: #27272a;
+            --border-light: #3f3f46;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--text-primary);
+            color: var(--bg-primary);
+        }
+
+        .btn-primary:hover {
+            background: #e5e5e5;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-light);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-secondary);
+            border-color: var(--text-secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 120px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 8vw, 80px);
+            font-weight: 800;
+            line-height: 0.9;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #fff 0%, #fff 40%, var(--primary) 60%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 48px;
+            line-height: 1.5;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-large {
+            padding: 12px 24px;
+            font-size: 16px;
+        }
+
+        /* Integration Visual */
+        .integration-visual {
+            margin: 80px auto;
+            max-width: 800px;
+            height: 400px;
+            position: relative;
+        }
+
+        .integration-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .vireon-hub {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary) 0%, #8b5cf6 100%);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 0 40px rgba(99, 102, 241, 0.4);
+            position: relative;
+            z-index: 10;
+        }
+
+        .pulse-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--primary);
+            border-radius: 24px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.3);
+                opacity: 0;
+            }
+        }
+
+        .integration-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .integration-item {
+            position: absolute;
+            padding: 8px 16px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .integration-item:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        /* Positioning for 8 items in a circle */
+        .integration-item:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); }
+        .integration-item:nth-child(2) { top: 15%; right: 15%; }
+        .integration-item:nth-child(3) { top: 50%; right: 0; transform: translateY(-50%); }
+        .integration-item:nth-child(4) { bottom: 15%; right: 15%; }
+        .integration-item:nth-child(5) { bottom: 0; left: 50%; transform: translateX(-50%); }
+        .integration-item:nth-child(6) { bottom: 15%; left: 15%; }
+        .integration-item:nth-child(7) { top: 50%; left: 0; transform: translateY(-50%); }
+        .integration-item:nth-child(8) { top: 15%; left: 15%; }
+
+        /* Connection lines */
+        .connection-line {
+            position: absolute;
+            background: linear-gradient(to right, transparent, var(--primary), transparent);
+            height: 1px;
+            transform-origin: left center;
+            opacity: 0.3;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 120px 0;
+            background: var(--bg-secondary);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 20px;
+            color: var(--text-secondary);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .feature-card {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--border-light);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Code Demo Section */
+        .demo-section {
+            padding: 120px 0;
+        }
+
+        .demo-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .demo-content h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .demo-content p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .demo-window {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .demo-header {
+            background: var(--bg-tertiary);
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .window-controls {
+            display: flex;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--border);
+        }
+
+        .dot:nth-child(1) { background: #ef4444; }
+        .dot:nth-child(2) { background: #f59e0b; }
+        .dot:nth-child(3) { background: #10b981; }
+
+        .demo-code {
+            padding: 24px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.8;
+            color: #e5e5e5;
+        }
+
+        .code-comment {
+            color: var(--text-muted);
+        }
+
+        .code-keyword {
+            color: #f472b6;
+        }
+
+        .code-string {
+            color: #a5f3fc;
+        }
+
+        .code-function {
+            color: #67e8f9;
+        }
+
+        /* Metrics Section */
+        .metrics {
+            padding: 120px 0;
+            background: var(--bg-secondary);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .metric-card {
+            text-align: center;
+        }
+
+        .metric-value {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .metric-label {
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 120px 0;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--border-light);
+            transform: translateY(-4px);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            background: var(--bg-tertiary);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 24px;
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .pricing-name {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .pricing-price {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .pricing-price span {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        .pricing-description {
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .pricing-features li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+        }
+
+        .pricing-features li::before {
+            content: "✓";
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 120px 0;
+            text-align: center;
+            background: var(--bg-secondary);
+        }
+
+        .cta h2 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .cta p {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 48px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .integration-visual {
+                transform: scale(0.8);
+                margin: 40px auto;
+            }
+
+            .demo-container {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">VIREON</div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#demo">Demo</a>
+                <a href="#pricing">Pricing</a>
+                <a href="/docs">Docs</a>
+                <a href="#" class="btn btn-primary">Get Started</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero container">
+        <h1>Connect all your<br><span class="gradient-text">AI tools</span> with one API</h1>
+        <p>Stop switching between GitHub Copilot, Claude, and ChatGPT. 
+           VIREON unifies all AI tools in one simple API. Ship faster.</p>
+        
+        <div class="hero-cta">
+            <a href="#" class="btn btn-primary btn-large">Start Free Trial</a>
+            <a href="#demo" class="btn btn-secondary btn-large">Watch Demo</a>
+        </div>
+
+        <!-- Integration Visual -->
+        <div class="integration-visual">
+            <div class="integration-center">
+                <div class="vireon-hub">
+                    <div class="pulse-ring"></div>
+                    VIREON
+                </div>
+            </div>
+            <div class="integration-grid">
+                <div class="integration-item">GitHub Copilot</div>
+                <div class="integration-item">Claude 3</div>
+                <div class="integration-item">GPT-4</div>
+                <div class="integration-item">n8n</div>
+                <div class="integration-item">Gemini</div>
+                <div class="integration-item">Cursor</div>
+                <div class="integration-item">Perplexity</div>
+                <div class="integration-item">VS Code</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Everything you need to build with AI</h2>
+                <p>One SDK. All AI tools. Zero complexity.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Instant Setup</h3>
+                    <p>Get started in under 60 seconds. Just npm install @vireon/sdk and you're ready to ship.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Unified Context</h3>
+                    <p>Your code context automatically flows between all AI tools. No more copy-pasting.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>10x Faster</h3>
+                    <p>Build AI features in minutes, not days. Focus on your product, not API integrations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code Demo Section -->
+    <section class="demo-section container" id="demo">
+        <div class="demo-container">
+            <div class="demo-content">
+                <h3>One API to rule them all</h3>
+                <p>Stop managing multiple SDKs, API keys, and rate limits. VIREON handles everything for you.</p>
+                <a href="#" class="btn btn-primary">View Documentation →</a>
+            </div>
+            
+            <div class="demo-window">
+                <div class="demo-header">
+                    <div class="window-controls">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+                <div class="demo-code">
+                    <div><span class="code-comment">// Before: Managing multiple AI tools</span></div>
+                    <div><span class="code-keyword">const</span> copilot = <span class="code-keyword">new</span> <span class="code-function">GitHubCopilot</span>(key1)</div>
+                    <div><span class="code-keyword">const</span> claude = <span class="code-keyword">new</span> <span class="code-function">Claude</span>(key2)</div>
+                    <div><span class="code-keyword">const</span> gpt = <span class="code-keyword">new</span> <span class="code-function">OpenAI</span>(key3)</div>
+                    <br>
+                    <div><span class="code-comment">// After: One unified API</span></div>
+                    <div><span class="code-keyword">import</span> vireon <span class="code-keyword">from</span> <span class="code-string">'@vireon/sdk'</span></div>
+                    <br>
+                    <div><span class="code-keyword">const</span> result = <span class="code-keyword">await</span> vireon.<span class="code-function">ai</span>(<span class="code-string">'refactor this function'</span>)</div>
+                    <div><span class="code-comment">// Automatically uses the best AI for the task</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics Section -->
+    <section class="metrics">
+        <div class="container">
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value">87%</div>
+                    <div class="metric-label">Less code to write</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">10x</div>
+                    <div class="metric-label">Faster integration</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">1</div>
+                    <div class="metric-label">API to manage</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing container" id="pricing">
+        <div class="section-header">
+            <h2>Simple, transparent pricing</h2>
+            <p>Start free. Scale as you grow.</p>
+        </div>
+
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3 class="pricing-name">Hobby</h3>
+                <div class="pricing-price">$0<span>/month</span></div>
+                <p class="pricing-description">Perfect for side projects</p>
+                <ul class="pricing-features">
+                    <li>1,000 API calls/month</li>
+                    <li>All AI tools included</li>
+                    <li>Community support</li>
+                    <li>Basic analytics</li>
+                </ul>
+                <a href="#" class="btn btn-secondary" style="width: 100%">Start Free</a>
+            </div>
+
+            <div class="pricing-card featured">
+                <span class="pricing-badge">Most Popular</span>
+                <h3 class="pricing-name">Pro</h3>
+                <div class="pricing-price">$29<span>/month</span></div>
+                <p class="pricing-description">For professional developers</p>
+                <ul class="pricing-features">
+                    <li>100,000 API calls/month</li>
+                    <li>All AI tools included</li>
+                    <li>Priority support</li>
+                    <li>Advanced analytics</li>
+                    <li>Custom workflows</li>
+                </ul>
+                <a href="#" class="btn btn-primary" style="width: 100%">Start Free Trial</a>
+            </div>
+
+            <div class="pricing-card">
+                <h3 class="pricing-name">Enterprise</h3>
+                <div class="pricing-price">Custom</div>
+                <p class="pricing-description">For teams and scale</p>
+                <ul class="pricing-features">
+                    <li>Unlimited API calls</li>
+                    <li>Custom AI models</li>
+                    <li>Dedicated support</li>
+                    <li>SLA & compliance</li>
+                    <li>On-premise option</li>
+                </ul>
+                <a href="#" class="btn btn-secondary" style="width: 100%">Contact Sales</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to ship faster?</h2>
+            <p>Join thousands of developers building with VIREON</p>
+            <a href="#" class="btn btn-primary btn-large">Start Free Trial</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">VIREON</div>
+                <div class="footer-links">
+                    <a href="/docs">Documentation</a>
+                    <a href="/pricing">Pricing</a>
+                    <a href="/blog">Blog</a>
+                    <a href="/about">About</a>
+                    <a href="/contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add connection lines dynamically
+        document.addEventListener('DOMContentLoaded', () => {
+            const hub = document.querySelector('.vireon-hub');
+            const items = document.querySelectorAll('.integration-item');
+            const container = document.querySelector('.integration-visual');
+            
+            if (!hub || !items.length) return;
+            
+            const hubRect = hub.getBoundingClientRect();
+            const containerRect = container.getBoundingClientRect();
+            const hubCenterX = hubRect.left + hubRect.width / 2 - containerRect.left;
+            const hubCenterY = hubRect.top + hubRect.height / 2 - containerRect.top;
+            
+            items.forEach(item => {
+                const itemRect = item.getBoundingClientRect();
+                const itemCenterX = itemRect.left + itemRect.width / 2 - containerRect.left;
+                const itemCenterY = itemRect.top + itemRect.height / 2 - containerRect.top;
+                
+                const angle = Math.atan2(itemCenterY - hubCenterY, itemCenterX - hubCenterX);
+                const distance = Math.sqrt(
+                    Math.pow(itemCenterX - hubCenterX, 2) + 
+                    Math.pow(itemCenterY - hubCenterY, 2)
+                );
+                
+                const line = document.createElement('div');
+                line.className = 'connection-line';
+                line.style.width = distance + 'px';
+                line.style.left = hubCenterX + 'px';
+                line.style.top = hubCenterY + 'px';
+                line.style.transform = `rotate(${angle}rad)`;
+                
+                container.appendChild(line);
+            });
+        });
+    </script>
+</body>
+</html>

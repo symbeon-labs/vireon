@@ -1,0 +1,31 @@
+{
+  "resource_limits": {
+    "max_memory_mb": 2048,
+    "max_cpu_percent": 50,
+    "max_handles": 10000,
+    "cache_size_mb": 512
+  },
+  "optimization_settings": {
+    "garbage_collection_interval": "15min",
+    "cache_cleanup_interval": "30min",
+    "background_task_throttling": true,
+    "disable_unnecessary_features": [
+      "continuous_file_watching",
+      "aggressive_indexing",
+      "redundant_syntax_checking"
+    ]
+  },
+  "monitoring": {
+    "enable_resource_tracking": true,
+    "log_excessive_usage": true,
+    "alert_threshold_memory_mb": 1500,
+    "alert_threshold_cpu_percent": 40
+  },
+  "integration_limits": {
+    "vireon_bridge": {
+      "max_concurrent_requests": 5,
+      "request_timeout_ms": 5000,
+      "rate_limit_per_minute": 60
+    }
+  }
+}

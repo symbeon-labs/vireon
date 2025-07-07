@@ -1,5 +1,15 @@
 # TODO List - VIREON
 
+## 🚨 URGENTE - Otimização de Recursos do Warp
+- [ ] Executar script de otimização: `powershell .\scripts\optimize_warp.ps1`
+- [ ] Aplicar configurações de limite de recursos do arquivo `config\warp_resource_limits.json`
+- [ ] Configurar monitoramento contínuo: `powershell .\scripts\monitor_warp_resources.ps1`
+- [ ] Revisar integração vireon-warp-bridge para reduzir chamadas desnecessárias
+- [ ] Implementar cache mais eficiente na ponte VIREON-Warp
+- [ ] Criar rotina de limpeza automática de cache (executar diariamente)
+- [ ] Analisar logs de consumo em `logs\warp_resource_monitor.log`
+- [ ] Configurar alertas automáticos quando ultrapassar limites
+
 ## Prioridade Alta
 - [ ] Implementar núcleo do Symbioticbridge
 - [ ] Desenvolver estrutura base do ConsciousnessManager

@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIREON - Unify Your AI Tools</title>
+    <meta name="description" content="VIREON is a universal meta-governance platform that connects all your AI tools with one seamless API.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Colors */
+            --primary: #6855DE;
+            --primary-glow: rgba(104, 85, 222, 0.4);
+            --primary-hover: #7B6AE8;
+            --secondary: #10B981;
+            --accent: #FF5470;
+            --bg-darkest: #0E1117;
+            --bg-dark: #151922;
+            --bg-card: #1C212E;
+            --bg-input: #2A3040;
+            --text-bright: #FFFFFF;
+            --text-primary: #E6E6F0;
+            --text-secondary: #9BA1B0;
+            --text-muted: #6D7182;
+            --border: #2A3040;
+            
+            /* Spacing */
+            --sp-xs: 0.25rem;
+            --sp-sm: 0.5rem;
+            --sp-md: 1rem;
+            --sp-lg: 1.5rem;
+            --sp-xl: 2rem;
+            --sp-xxl: 3rem;
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-glow: 0 0 20px var(--primary-glow);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-darkest);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--sp-lg);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background: rgba(14, 17, 23, 0.8);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--text-bright);
+            display: flex;
+            align-items: center;
+            gap: var(--sp-md);
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--primary), #9F7AEA);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: var(--sp-xl);
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--sp-sm);
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--text-bright);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-input);
+            transform: translateY(-2px);
+        }
+
+        .btn-icon {
+            margin-left: var(--sp-sm);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--sp-xxl);
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 320px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(104, 85, 222, 0.1);
+            border: 1px solid rgba(104, 85, 222, 0.3);
+            color: var(--primary);
+            font-size: 0.875rem;
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: var(--sp-lg);
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: var(--sp-lg);
+            color: var(--text-bright);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #6855DE, #9F7AEA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--sp-xl);
+            max-width: 540px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: var(--sp-md);
+            margin-bottom: var(--sp-xl);
+        }
+
+        .hero-graphic {
+            flex: 1;
+            min-width: 320px;
+        }
+
+        /* Terminal Demo */
+        .terminal-window {
+            background: var(--bg-dark);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .terminal-header {
+            background: var(--bg-card);
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .window-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background-color: #FF5F56; }
+        .dot-yellow { background-color: #FFBD2E; }
+        .dot-green { background-color: #27C93F; }
+
+        .terminal-body {
+            padding: 16px;
+            font-family: "SF Mono", "Consolas", monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .command-line {
+            display: flex;
+            margin-bottom: 12px;
+        }
+
+        .prompt {
+            color: var(--secondary);
+            margin-right: 8px;
+            font-weight: 600;
+        }
+
+        .command {
+            color: var(--text-bright);
+        }
+
+        .output {
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            padding-left: 16px;
+        }
+
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .blink {
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, var(--bg-darkest), var(--bg-dark));
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--sp-xxl);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: var(--sp-md);
+            color: var(--text-bright);
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--sp-xl);
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: var(--sp-xl);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background: rgba(104, 85, 222, 0.1);
+            color: var(--primary);
+            font-size: 22px;
+            margin-bottom: var(--sp-lg);
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--sp-md);
+            color: var(--text-bright);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        /* Integration Diagram */
+        .integration-section {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .integration-visual {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            margin: var(--sp-xxl) auto;
+        }
+
+        .hub-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+
+        .vireon-hub {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary), #9F7AEA);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-bright);
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-glow);
+            position: relative;
+        }
+
+        .hub-pulse {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: inherit;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1.6);
+                opacity: 0;
+            }
+        }
+
+        .integration-orbit {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: orbit-rotate 60s linear infinite;
+        }
+
+        @keyframes orbit-rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .orbit-item {
+            position: absolute;
+            width: 80px;
+            height: 36px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .orbit-item:hover {
+            background: var(--bg-input);
+            border-color: var(--primary);
+            box-shadow: 0 0 10px var(--primary-glow);
+            transform: scale(1.1) !important;
+            z-index: 5;
+        }
+
+        .connection-line {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(104, 85, 222, 0.8), rgba(104, 85, 222, 0.2));
+            transform-origin: left center;
+            z-index: 1;
+        }
+
+        /* Usage Demo Section */
+        .usage-demo {
+            padding: 100px 0;
+            background: var(--bg-dark);
+        }
+
+        .code-demo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--sp-xxl);
+            margin-top: var(--sp-xxl);
+            align-items: center;
+        }
+
+        .code-explanation {
+            text-align: left;
+        }
+
+        .code-explanation h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: var(--sp-lg);
+            color: var(--text-bright);
+        }
+
+        .code-explanation p {
+            color: var(--text-secondary);
+            margin-bottom: var(--sp-lg);
+        }
+
+        .code-explanation ul {
+            list-style: none;
+            margin-bottom: var(--sp-xl);
+        }
+
+        .code-explanation li {
+            display: flex;
+            align-items: center;
+            gap: var(--sp-sm);
+            margin-bottom: var(--sp-md);
+            color: var(--text-secondary);
+        }
+
+        .code-explanation li::before {
+            content: "✓";
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .code-window {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .code-header {
+            background: rgba(28, 33, 46, 0.7);
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .code-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .code-filename {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .code-body {
+            padding: var(--sp-lg);
+            font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            overflow-x: auto;
+        }
+
+        .code-line {
+            display: flex;
+        }
+
+        .line-number {
+            color: var(--text-muted);
+            text-align: right;
+            padding-right: var(--sp-md);
+            user-select: none;
+            min-width: 30px;
+        }
+
+        .code-content {
+            padding-left: var(--sp-sm);
+        }
+
+        .keyword {
+            color: #C678DD;
+        }
+
+        .function {
+            color: #61AFEF;
+        }
+
+        .string {
+            color: #98C379;
+        }
+
+        .comment {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .variable {
+            color: #E06C75;
+        }
+
+        /* Social Proof */
+        .social-proof {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .logos-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--sp-xxl);
+            margin-top: var(--sp-xl);
+        }
+
+        .company-logo {
+            opacity: 0.7;
+            transition: opacity 0.2s ease;
+            height: 40px;
+            filter: grayscale(100%) brightness(10);
+        }
+
+        .company-logo:hover {
+            opacity: 1;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, var(--bg-dark), var(--bg-darkest));
+        }
+
+        .pricing-toggle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: var(--sp-xl) 0 var(--sp-xxl);
+            gap: var(--sp-md);
+        }
+
+        .toggle-option {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .toggle-option.active {
+            color: var(--text-bright);
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 50px;
+            height: 26px;
+            border-radius: 13px;
+            background: var(--primary);
+            cursor: pointer;
+        }
+
+        .toggle-handle {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: white;
+            transition: transform 0.2s ease;
+        }
+
+        .toggle-handle.yearly {
+            transform: translateX(24px);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--sp-xl);
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: var(--sp-xl);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            position: relative;
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        .plan-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: var(--sp-sm);
+            color: var(--text-bright);
+        }
+
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-bright);
+            margin-bottom: var(--sp-md);
+        }
+
+        .plan-price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        .plan-description {
+            color: var(--text-secondary);
+            margin-bottom: var(--sp-xl);
+            font-size: 0.95rem;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: var(--sp-xl);
+            flex-grow: 1;
+        }
+
+        .plan-features li {
+            display: flex;
+            align-items: center;
+            gap: var(--sp-sm);
+            margin-bottom: var(--sp-md);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .plan-features li::before {
+            content: "✓";
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+            justify-content: center;
+            padding: 12px;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 120px 0;
+            text-align: center;
+            background: linear-gradient(45deg, rgba(104, 85, 222, 0.1), rgba(159, 122, 234, 0.1));
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: var(--sp-lg);
+            color: var(--text-bright);
+        }
+
+        .cta p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto var(--sp-xl);
+        }
+
+        .cta .btn {
+            padding: 14px 28px;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: var(--sp-xxl) 0 var(--sp-xl);
+            background: var(--bg-darkest);
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: var(--sp-xl);
+        }
+
+        .footer-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: var(--sp-lg);
+            color: var(--text-bright);
+            display: flex;
+            align-items: center;
+            gap: var(--sp-md);
+        }
+
+        .footer-description {
+            color: var(--text-secondary);
+            margin-bottom: var(--sp-lg);
+            max-width: 300px;
+        }
+
+        .footer-column h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: var(--sp-lg);
+            color: var(--text-bright);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--sp-sm);
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            transition: color 0.2s ease;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .copyright {
+            margin-top: var(--sp-xxl);
+            padding-top: var(--sp-lg);
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        /* Animation Utilities */
+        .fade-in-up {
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                gap: var(--sp-xl);
+            }
+            
+            .hero-text {
+                text-align: center;
+            }
+            
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+            
+            .code-demo {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            width: 40px;
+            height: 40px;
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">
+                <div class="logo-icon">V</div>
+                VIREON
+            </a>
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#integration" class="nav-link">Integrations</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#" class="nav-link">Docs</a>
+                <a href="#" class="btn btn-primary">Get Started <span class="btn-icon">→</span></a>
+            </div>
+            <div class="mobile-menu-btn">☰</div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text fade-in-up">
+                    <div class="hero-badge">Universal API for AI Tools</div>
+                    <h1 class="hero-title">One API to connect <span class="gradient-text">all your AI tools</span></h1>
+                    <p class="hero-description">Stop switching between AI assistants. VIREON unifies GitHub Copilot, Claude, GPT-4, Gemini and more with a single, simple interface.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn btn-primary">Start Free Trial <span class="btn-icon">→</span></a>
+                        <a href="#" class="btn btn-secondary">View Documentation</a>
+                    </div>
+                </div>
+                <div class="hero-graphic fade-in-up">
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <div class="window-dot dot-red"></div>
+                            <div class="window-dot dot-yellow"></div>
+                            <div class="window-dot dot-green"></div>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="command-line">
+                                <span class="prompt">$</span>
+                                <span class="command">pip install vireon</span>
+                            </div>
+                            <div class="output">Successfully installed vireon-1.0.0</div>
+                            <div class="command-line">
+                                <span class="prompt">$</span>
+                                <span class="command">python</span>
+                            </div>
+                            <div class="output">Python 3.11.5</div>
+                            <div class="command-line">
+                                <span class="prompt">>>></span>
+                                <span class="command">import vireon</span>
+                            </div>
+                            <div class="command-line">
+                                <span class="prompt">>>></span>
+                                <span class="command">vireon.init(api_key='your_key')</span>
+                            </div>
+                            <div class="output"><span class="highlight">✓</span> Connected to VIREON. All AI assistants ready.</div>
+                            <div class="command-line">
+                                <span class="prompt">>>></span>
+                                <span class="command">response = vireon.ai('Optimize this function')</span>
+                            </div>
+                            <div class="command-line">
+                                <span class="prompt">>>></span>
+                                <span class="command">print(response.source)</span>
+                            </div>
+                            <div class="output">'GPT-4' <span class="highlight">(automatically selected best model)</span></div>
+                            <div class="command-line">
+                                <span class="prompt">>>></span>
+                                <span class="command"><span class="blink">|</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why developers love VIREON</h2>
+                <p class="section-subtitle">One unified interface for all your AI assistants with powerful features that save time and accelerate development.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>10x Faster Integration</h3>
+                    <p>Integrate all AI models with a single API call. No need to manage multiple SDKs, tokens, and rate limits across different platforms.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Automatic Fallback</h3>
+                    <p>If one AI service is down or over capacity, VIREON automatically routes your request to the next best alternative with zero downtime.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>Unified Context</h3>
+                    <p>Your conversation history and context flows seamlessly between AI assistants, eliminating repetitive explanations and context switching.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Smart Analytics</h3>
+                    <p>Track usage, costs, and performance across all your AI tools from a single dashboard. Optimize spending and identify the best tools for each task.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Enterprise Security</h3>
+                    <p>Built-in compliance controls, data redaction, and audit logs make VIREON enterprise-ready while keeping your data secure.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Future-Proof</h3>
+                    <p>As new AI models emerge, they're automatically added to VIREON. Your code stays the same while you gain access to cutting-edge capabilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration Visual Section -->
+    <section class="integration-section" id="integration">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">All your AI tools in one place</h2>
+                <p class="section-subtitle">VIREON connects to all major AI assistants, language models, and developer tools through a single, universal API.</p>
+            </div>
+
+            <div class="integration-visual">
+                <div class="hub-center">
+                    <div class="vireon-hub">
+                        <div class="hub-pulse"></div>
+                        VIREON
+                    </div>
+                </div>
+                
+                <!-- Connection lines will be added by JavaScript -->
+                
+                <!-- Orbital items -->
+                <div class="orbit-item" style="top: 10%; left: 50%; transform: translateX(-50%);">GitHub Copilot</div>
+                <div class="orbit-item" style="top: 25%; right: 10%;">Claude 3</div>
+                <div class="orbit-item" style="top: 50%; right: 5%; transform: translateY(-50%);">GPT-4</div>
+                <div class="orbit-item" style="bottom: 25%; right: 10%;">Gemini</div>
+                <div class="orbit-item" style="bottom: 10%; left: 50%; transform: translateX(-50%);">n8n</div>
+                <div class="orbit-item" style="bottom: 25%; left: 10%;">Perplexity</div>
+                <div class="orbit-item" style="top: 50%; left: 5%; transform: translateY(-50%);">Midjourney</div>
+                <div class="orbit-item" style="top: 25%; left: 10%;">VS Code</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code Demo Section -->
+    <section class="usage-demo">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Simpler code, better results</h2>
+                <p class="section-subtitle">Replace complex integrations with a single, intuitive API that handles everything for you.</p>
+            </div>
+
+            <div class="code-demo">
+                <div class="code-explanation">
+                    <h3>Eliminate integration complexity</h3>
+                    <p>VIREON's universal API abstracts away the differences between AI tools, letting you focus on building features instead of managing integrations.</p>
+                    
+                    <ul>
+                        <li>Replace multiple SDKs with a single library</li>
+                        <li>Manage all your API keys in one secure place</li>
+                        <li>Automatic model selection based on task requirements</li>
+                        <li>Unified error handling and retry logic</li>
+                    </ul>
+                    
+                    <a href="#" class="btn btn-primary">View API Documentation <span class="btn-icon">→</span></a>
+                </div>
+
+                <div class="code-window">
+                    <div class="code-header">
+                        <div class="code-dots">
+                            <div class="window-dot dot-red"></div>
+                            <div class="window-dot dot-yellow"></div>
+                            <div class="window-dot dot-green"></div>
+                        </div>
+                        <div class="code-filename">app.js</div>
+                    </div>
+                    <div class="code-body">
+                        <div class="code-line">
+                            <div class="line-number">1</div>
+                            <div class="code-content"><span class="comment">// Before: Managing multiple AI tools</span></div>
+                        </div>
+                        <div class="code-line">
+                            <div class="line-number">2</div>
+                            <div class="code-content"><span class="keyword">const</span> copilot = <span class="keyword">new</span> <span class="function">GitHubCopilot</span>(key1);</div>
+                        </div>
+                        <div class="code-line">
+                            <div class="line-number">3</div>
+                            <div class="code-content"><span class="keyword">const</span> claude = <span class="keyword">new</span> <span class="function">Claude</span>(key2);</div>
+                        </div>
+                        <div class="code-line">
+                            <div class="line-number">4</div>
+                            <div class="code-content"><span class="keyword">const</span> gpt = <span class="keyword">new</span> <span class="function">OpenAI</span>(key3);</div>
+                        </div>
+                        <div class="code-line">
+                            <div class="line-number">5</div>
+                            <div class="code-content"></div>
+                        </div>
+                        <div class="code-line">
+                            <div class="line-number">6</div>
+                            <div class="code-content"><span class="keyword">async</span> <span class="function">function</span> <span class="function">generateCode</span>() {</div>
+                        </div>
+                        <div class="code-line">
+                            <div class="line-number">7</div>
+                            <div class="code-content">  <span class="keyword">try</span> {</div>
+                        </div>
+                        <div class="code-line">
+                            <div class="line-number">8</div>
+                            <div class="code-content">    <span class="keyword">const</span> response = <span class="keyword">await</span> copilot.<span class="function">generateCode</span>(prompt);</div>
+                        </div>
+                        <div class="code-line">
+                            <div class="line-number">9</div>
+                            <div class="code-content">    <span class="keyword">return</span> response;</div>
+                        </div>
+                        <div class="code-line">
+                            <div class="line-number">10</div>
+                            <div class="code-content">  } <span class="keyword">catch</span> (error) {</div>
+                        </div>
+                        <div class="code-line">
+                            <div class="line-number">11</div>
+                            <div class="code-content">    <span class="comment">// Fall back to Claude</span></div>
+                        </div>
+                        <div class="code-line">
+                            <div class="line-number">12</div>
+                            <div class="code-content">    <span class="keyword">try</span> {</div>
+                        </div>
+                        <div class="code-line">
+                            <div class="line-number">13</div>
+                            <div class="code-content">      <span class="keyword">const</span> response = <span class="keyword">await</span> claude.<span class="function">complete</span>(prompt);</div>
+                        </div>
+                        <div class="code-line">
+                            <div class="line-number">14</div>
+                            <div class="code-content">      <span class="keyword">return</span> response;</div>
+                        </div>
+                        <div class="code-line">
+                            <div class="line-number">15</div>
+                            <div class="code-content">    } <span class="keyword">catch</span> (error) {</div>
+                        </div>
+                        <div class="code-line">
+                            <div class="line-number">16</div>
+                            <div class="code-content">      <span class="comment">// Final fallback to GPT</span></div>
+                        </div>
+                        <div class="code-line">
+                            <div class="line-number">17</div>
+                            <div class="code-content">      <span class="keyword">return</span> gpt.<span class="function">createCompletion</span>(prompt);</div>
+                        </div>
+                        <div class="code-line">
+                            <div class="line-number">18</div>
+                            <div class="code-content">    }</div>
+                        </div>
+                        <div class="code-line">
+                            <div class="line-number">19</div>
+                            <div class="code-content">  }</div>
+                        </div>
+                        <div class="code-line">
+                            <div class="line-number">20</div>
+                            <div class="code-content">}</div>
+                        </div>
+                        <div class="code-line">
+                            <div class="line-number">21</div>
+                            <div class="code-content"></div>
+                        </div>
+                        <div class="code-line">
+                            <div class="line-number">22</div>
+                            <div class="code-content"><span class="comment">// After: One unified API</span></div>
+                        </div>
+                        <div class="code-line">
+                            <div class="line-number">23</div>
+                            <div class="code-content"><span class="keyword">import</span> { vireon } <span class="keyword">from</span> <span class="string">'@vireon/sdk'</span>;</div>
+                        </div>
+                        <div class="code-line">
+                            <div class="line-number">24</div>
+                            <div class="code-content"></div>
+                        </div>
+                        <div class="code-line">
+                            <div class="line-number">25</div>
+                            <div class="code-content"><span class="keyword">async</span> <span class="function">function</span> <span class="function">generateCode</span>() {</div>
+                        </div>
+                        <div class="code-line">
+                            <div class="line-number">26</div>
+                            <div class="code-content">  <span class="keyword">const</span> response = <span class="keyword">await</span> vireon.<span class="function">ai</span>(prompt);</div>
+                        </div>
+                        <div class="code-line">
+                            <div class="line-number">27</div>
+                            <div class="code-content">  <span class="keyword">return</span> response;</div>
+                        </div>
+                        <div class="code-line">
+                            <div class="line-number">28</div>
+                            <div class="code-content">}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof">
+        <div class="container">
+            <p>Trusted by innovative teams at</p>
+            <div class="logos-container">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Microsoft" class="company-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM" class="company-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon" class="company-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google" class="company-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" class="company-logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Simple, transparent pricing</h2>
+                <p class="section-subtitle">Start free, then scale as you grow. No hidden fees or surprises.</p>
+            </div>
+
+            <div class="pricing-toggle">
+                <div class="toggle-option active">Monthly</div>
+                <div class="toggle-switch">
+                    <div class="toggle-handle"></div>
+                </div>
+                <div class="toggle-option">Yearly <span style="color: var(--secondary);">Save 20%</span></div>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 class="plan-name">Starter</h3>
+                    <div class="plan-price">$0<span>/month</span></div>
+                    <p class="plan-description">Perfect for individual developers and side projects</p>
+                    <ul class="plan-features">
+                        <li>1,000 AI requests per month</li>
+                        <li>Access to all AI tools</li>
+                        <li>Single user account</li>
+                        <li>Community support</li>
+                        <li>Basic analytics</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Get Started Free</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <h3 class="plan-name">Pro</h3>
+                    <div class="plan-price">$29<span>/month</span></div>
+                    <p class="plan-description">For professional developers and small teams</p>
+                    <ul class="plan-features">
+                        <li>50,000 AI requests per month</li>
+                        <li>Access to all AI tools</li>
+                        <li>Up to 5 team members</li>
+                        <li>Priority email support</li>
+                        <li>Advanced analytics dashboard</li>
+                        <li>Custom workflows</li>
+                        <li>API key management</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Start 14-Day Trial</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3 class="plan-name">Enterprise</h3>
+                    <div class="plan-price">Custom</div>
+                    <p class="plan-description">For organizations with advanced needs</p>
+                    <ul class="plan-features">
+                        <li>Unlimited AI requests</li>
+                        <li>Custom AI model integrations</li>
+                        <li>Unlimited team members</li>
+                        <li>Dedicated support</li>
+                        <li>SLA guarantees</li>
+                        <li>SSO & advanced security</li>
+                        <li>On-premises deployment option</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to unify your AI workflow?</h2>
+            <p>Join thousands of developers building faster with VIREON's universal AI platform.</p>
+            <a href="#" class="btn btn-primary">Start Free Trial <span class="btn-icon">→</span></a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <a href="#" class="footer-logo">
+                        <div class="logo-icon">V</div>
+                        VIREON
+                    </a>
+                    <p class="footer-description">The universal platform for AI tool integration. Unify your workflow and build faster.</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Integrations</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Enterprise</a></li>
+                        <li><a href="#">Changelog</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Guides</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                © 2025 VIREON. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add connection lines between VIREON hub and integration items
+        document.addEventListener('DOMContentLoaded', () => {
+            const hub = document.querySelector('.vireon-hub');
+            const items = document.querySelectorAll('.orbit-item');
+            const visual = document.querySelector('.integration-visual');
+            
+            if (hub && items.length && visual) {
+                const hubRect = hub.getBoundingClientRect();
+                const visualRect = visual.getBoundingClientRect();
+                
+                const hubCenterX = hubRect.width / 2;
+                const hubCenterY = hubRect.height / 2;
+                
+                items.forEach(item => {
+                    const itemRect = item.getBoundingClientRect();
+                    const visualX = itemRect.left - visualRect.left + itemRect.width / 2;
+                    const visualY = itemRect.top - visualRect.top + itemRect.height / 2;
+                    
+                    const dx = visualX - hubCenterX;
+                    const dy = visualY - hubCenterY;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+                    
+                    const line = document.createElement('div');
+                    line.className = 'connection-line';
+                    line.style.width = `${distance}px`;
+                    line.style.top = `${hubCenterY}px`;
+                    line.style.left = `${hubCenterX}px`;
+                    line.style.transform = `rotate(${angle}deg)`;
+                    
+                    visual.appendChild(line);
+                });
+            }
+        });
+        
+        // Toggle pricing between monthly and yearly
+        const toggleSwitch = document.querySelector('.toggle-switch');
+        const toggleHandle = document.querySelector('.toggle-handle');
+        const toggleOptions = document.querySelectorAll('.toggle-option');
+        
+        if (toggleSwitch && toggleHandle && toggleOptions.length >= 2) {
+            toggleSwitch.addEventListener('click', () => {
+                toggleHandle.classList.toggle('yearly');
+                toggleOptions[0].classList.toggle('active');
+                toggleOptions[1].classList.toggle('active');
+                
+                // Here you would also update the pricing display
+                // This is just a placeholder for the toggle functionality
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIREON - All your AI tools. One simple API.</title>
+    <meta name="description" content="Stop switching between GitHub Copilot, Claude, and ChatGPT. VIREON gives you one API that connects them all. Ship AI features 10x faster.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #000;
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #222;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #888;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .btn {
+            background: #fff;
+            color: #000;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 1px solid #333;
+        }
+
+        .btn-secondary:hover {
+            background: #111;
+            border-color: #444;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 160px 0 80px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+        }
+
+        .hero .subtitle {
+            font-size: 22px;
+            color: #888;
+            max-width: 600px;
+            margin: 0 auto 48px;
+            line-height: 1.5;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 80px;
+        }
+
+        .btn-large {
+            padding: 14px 28px;
+            font-size: 16px;
+        }
+
+        /* Integration Showcase */
+        .integration-showcase {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto 80px;
+            height: 400px;
+        }
+
+        .integration-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+
+        .vireon-core {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 0 60px rgba(139, 92, 246, 0.5);
+            position: relative;
+        }
+
+        .vireon-core::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: inherit;
+            animation: pulse 2s infinite;
+            z-index: -1;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .integration-orbit {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .orbit-item {
+            position: absolute;
+            width: 100px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .orbit-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .orbit-item:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%) translateY(-100px); }
+        .orbit-item:nth-child(2) { top: 25%; right: 0; transform: translateX(100px); }
+        .orbit-item:nth-child(3) { bottom: 25%; right: 0; transform: translateX(100px); }
+        .orbit-item:nth-child(4) { bottom: 0; left: 50%; transform: translateX(-50%) translateY(100px); }
+        .orbit-item:nth-child(5) { bottom: 25%; left: 0; transform: translateX(-100px); }
+        .orbit-item:nth-child(6) { top: 25%; left: 0; transform: translateX(-100px); }
+        .orbit-item:nth-child(7) { top: 15%; right: 15%; }
+        .orbit-item:nth-child(8) { bottom: 15%; left: 15%; }
+
+        /* Code Demo */
+        .demo-section {
+            padding: 80px 0;
+            background: #050505;
+        }
+
+        .demo {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #0a0a0a;
+            border: 1px solid #222;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .demo-header {
+            background: #111;
+            padding: 12px 16px;
+            border-bottom: 1px solid #222;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .demo-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #444;
+        }
+
+        .dot:nth-child(1) { background: #ff5f57; }
+        .dot:nth-child(2) { background: #ffbd2e; }
+        .dot:nth-child(3) { background: #28ca42; }
+
+        .demo-title {
+            flex: 1;
+            text-align: center;
+            font-family: monospace;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .demo-content {
+            padding: 24px;
+        }
+
+        .code-block {
+            font-family: 'SF Mono', Monaco, monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .comment { color: #666; }
+        .keyword { color: #ff79c6; }
+        .string { color: #f1fa8c; }
+        .function { color: #50fa7b; }
+        .variable { color: #8be9fd; }
+
+        /* Features */
+        .features {
+            padding: 120px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 48px;
+            margin-bottom: 80px;
+        }
+
+        .feature {
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .feature h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .feature p {
+            color: #888;
+            font-size: 16px;
+        }
+
+        /* Benefits */
+        .benefits {
+            padding: 80px 0;
+            background: #050505;
+        }
+
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .benefit-content h3 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .benefit-content p {
+            font-size: 18px;
+            color: #888;
+            margin-bottom: 24px;
+        }
+
+        .benefit-list {
+            list-style: none;
+        }
+
+        .benefit-list li {
+            padding: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 16px;
+        }
+
+        .benefit-list li::before {
+            content: "✓";
+            color: #10b981;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .benefit-visual {
+            background: #0a0a0a;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .metric {
+            margin-bottom: 24px;
+        }
+
+        .metric-value {
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .metric-label {
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* Logos */
+        .logos {
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .logos p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 32px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+            opacity: 0.4;
+            filter: grayscale(100%);
+            flex-wrap: wrap;
+        }
+
+        .logo-item {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .pricing h2 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .pricing-subtitle {
+            color: #888;
+            font-size: 20px;
+            margin-bottom: 64px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: #0a0a0a;
+            border: 1px solid #222;
+            border-radius: 8px;
+            padding: 32px;
+            text-align: left;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-4px);
+            border-color: #333;
+        }
+
+        .pricing-card.featured {
+            border-color: #6366f1;
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #6366f1;
+            color: white;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .pricing-name {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .pricing-price {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .pricing-price span {
+            font-size: 16px;
+            font-weight: 400;
+            color: #888;
+        }
+
+        .pricing-desc {
+            color: #888;
+            margin-bottom: 24px;
+            font-size: 14px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .pricing-features li {
+            padding: 8px 0;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pricing-features li::before {
+            content: "✓";
+            color: #10b981;
+        }
+
+        .pricing-btn {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #333;
+            background: transparent;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+
+        .pricing-btn:hover {
+            background: #111;
+            border-color: #444;
+        }
+
+        .featured .pricing-btn {
+            background: #6366f1;
+            border-color: #6366f1;
+        }
+
+        .featured .pricing-btn:hover {
+            background: #5558d9;
+            border-color: #5558d9;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 120px 0;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+
+        .cta p {
+            font-size: 20px;
+            color: #888;
+            margin-bottom: 40px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 48px 0;
+            border-top: 1px solid #222;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+
+        footer .footer-links {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        footer a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .features-grid,
+            .pricing-grid,
+            .benefit-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .integration-showcase {
+                transform: scale(0.7);
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">VIREON</div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="/docs">Docs</a>
+                <a href="https://github.com/vireon">GitHub</a>
+                <a href="/login" class="btn">Get Started</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero container">
+        <h1>All your AI tools.<br>One simple API.</h1>
+        <p class="subtitle">
+            Stop switching between GitHub Copilot, Claude, and ChatGPT.<br>
+            VIREON connects them all. Ship AI features 10x faster.
+        </p>
+        
+        <div class="hero-cta">
+            <a href="/signup" class="btn btn-large">Start Building — It's Free</a>
+            <a href="#demo" class="btn btn-secondary btn-large">See How It Works</a>
+        </div>
+
+        <!-- Integration Showcase -->
+        <div class="integration-showcase">
+            <div class="integration-center">
+                <div class="vireon-core">VIREON</div>
+            </div>
+            <div class="integration-orbit">
+                <div class="orbit-item">GitHub Copilot</div>
+                <div class="orbit-item">Claude</div>
+                <div class="orbit-item">GPT-4</div>
+                <div class="orbit-item">n8n</div>
+                <div class="orbit-item">Cursor</div>
+                <div class="orbit-item">Warp</div>
+                <div class="orbit-item">VS Code</div>
+                <div class="orbit-item">Gemini</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="demo-section" id="demo">
+        <div class="container">
+            <div class="demo">
+                <div class="demo-header">
+                    <div class="demo-dots">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                    <div class="demo-title">app.js</div>
+                </div>
+                <div class="demo-content">
+                    <div class="code-block">
+                        <div><span class="comment">// Before: Managing multiple AI tools separately</span></div>
+                        <div><span class="keyword">const</span> <span class="variable">copilot</span> = <span class="keyword">new</span> <span class="function">GitHubCopilot</span>(apiKey1)</div>
+                        <div><span class="keyword">const</span> <span class="variable">claude</span> = <span class="keyword">new</span> <span class="function">ClaudeAPI</span>(apiKey2)</div>
+                        <div><span class="keyword">const</span> <span class="variable">gpt</span> = <span class="keyword">new</span> <span class="function">OpenAI</span>(apiKey3)</div>
+                        <div><span class="keyword">const</span> <span class="variable">automation</span> = <span class="keyword">new</span> <span class="function">N8N</span>(apiKey4)</div>
+                        <div><span class="comment">// Context is lost between tools, no collaboration 😞</span></div>
+                    </div>
+                    <div class="code-block">
+                        <div><span class="comment">// After: One unified API with VIREON</span></div>
+                        <div><span class="keyword">import</span> <span class="variable">vireon</span> <span class="keyword">from</span> <span class="string">'@vireon/sdk'</span></div>
+                        <div></div>
+                        <div><span class="comment">// All tools work together with shared context</span></div>
+                        <div><span class="keyword">const</span> <span class="variable">result</span> = <span class="keyword">await</span> <span class="variable">vireon</span>.<span class="function">ask</span>(<span class="string">'refactor this function'</span>)</div>
+                        <div><span class="comment">// Automatically uses the best AI for the task ✨</span></div>
+                        <div></div>
+                        <div><span class="comment">// Create complex workflows with n8n integration</span></div>
+                        <div><span class="keyword">await</span> <span class="variable">vireon</span>.<span class="function">workflow</span>(<span class="string">'deploy-to-production'</span>)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features container">
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>Instant Setup</h3>
+                <p>npm install and you're done. Works with your existing tools.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🔄</div>
+                <h3>Smart Context</h3>
+                <p>Your code context flows seamlessly between all AI tools</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🚀</div>
+                <h3>10x Faster</h3>
+                <p>Ship AI features in minutes instead of wrestling with APIs</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="benefits">
+        <div class="container">
+            <div class="benefit-grid">
+                <div class="benefit-content">
+                    <h3>Stop the API madness</h3>
+                    <p>No more managing dozens of API keys, learning different SDKs, or losing context between tools.</p>
+                    <ul class="benefit-list">
+                        <li>Single API for all AI tools</li>
+                        <li>Automatic context sharing</li>
+                        <li>Built-in rate limiting & retries</li>
+                        <li>One bill, all tools included</li>
+                    </ul>
+                </div>
+                <div class="benefit-visual">
+                    <div class="metric">
+                        <div class="metric-value">87%</div>
+                        <div class="metric-label">Less code to maintain</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">10x</div>
+                        <div class="metric-label">Faster AI integration</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="logos container">
+        <p>Trusted by 1,000+ developers at</p>
+        <div class="logo-grid">
+            <div class="logo-item">Stripe</div>
+            <div class="logo-item">Vercel</div>
+            <div class="logo-item">Linear</div>
+            <div class="logo-item">Supabase</div>
+            <div class="logo-item">Railway</div>
+            <div class="logo-item">Planetscale</div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing container" id="pricing">
+        <h2>Simple, transparent pricing</h2>
+        <p class="pricing-subtitle">Start free. Scale as you grow.</p>
+        
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3 class="pricing-name">Hobby</h3>
+                <div class="pricing-price">$0<span>/month</span></div>
+                <p class="pricing-desc">Perfect for side projects</p>
+                <ul class="pricing-features">
+                    <li>All AI tools included</li>
+                    <li>1,000 API calls/month</li>
+                    <li>Community support</li>
+                    <li>Basic analytics</li>
+                </ul>
+                <a href="/signup" class="pricing-btn">Start Free</a>
+            </div>
+
+            <div class="pricing-card featured">
+                <span class="pricing-badge">Most Popular</span>
+                <h3 class="pricing-name">Pro</h3>
+                <div class="pricing-price">$20<span>/month</span></div>
+                <p class="pricing-desc">For serious builders</p>
+                <ul class="pricing-features">
+                    <li>All AI tools included</li>
+                    <li>100,000 API calls/month</li>
+                    <li>Priority support</li>
+                    <li>Team collaboration</li>
+                    <li>Custom workflows</li>
+                    <li>Advanced analytics</li>
+                </ul>
+                <a href="/signup" class="pricing-btn">Start Free Trial</a>
+            </div>
+
+            <div class="pricing-card">
+                <h3 class="pricing-name">Team</h3>
+                <div class="pricing-price">Custom</div>
+                <p class="pricing-desc">For growing teams</p>
+                <ul class="pricing-features">
+                    <li>Everything in Pro</li>
+                    <li>Unlimited API calls</li>
+                    <li>SSO + SOC2</li>
+                    <li>Custom AI models</li>
+                    <li>Dedicated support</li>
+                    <li>SLA guarantee</li>
+                </ul>
+                <a href="mailto:sales@vireon.ai" class="pricing-btn">Contact Sales</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta container">
+        <h2>Ready to ship faster?</h2>
+        <p>Join thousands of developers building with VIREON.</p>
+        <a href="/signup" class="btn btn-large">Start Building — It's Free</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="/docs">Documentation</a>
+                <a href="/blog">Blog</a>
+                <a href="/changelog">Changelog</a>
+                <a href="https://github.com/vireon">GitHub</a>
+                <a href="https://twitter.com/vireon">Twitter</a>
+                <a href="/privacy">Privacy</a>
+                <a href="/terms">Terms</a>
+            </div>
+            <p>&copy; 2025 VIREON. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add parallax effect to orbit items
+        document.addEventListener('mousemove', (e) => {
+            const orbit = document.querySelector('.integration-orbit');
+            if (!orbit) return;
+            
+            const x = (e.clientX - window.innerWidth / 2) / 50;
+            const y = (e.clientY - window.innerHeight / 2) / 50;
+            
+            orbit.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    </script>
+</body>
+</html>

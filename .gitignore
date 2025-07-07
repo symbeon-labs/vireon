@@ -6,16 +6,39 @@ Cargo.lock
 # Python
 __pycache__/
 *.py[cod]
-*.class
+*$py.class
 *.so
 .Python
 build/
+develop-eggs/
 dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
 *.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
 
 # IDEs
 .idea/
 .vscode/
+*.code-workspace
 
 # Build
 *.rlib
@@ -24,15 +47,53 @@ dist/
 *.exe
 *.pdb
 
-# VIREON
+# Testing
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Logs
+logs/
+*.log
+pip-log.txt
+pip-delete-this-directory.txt
+
+# OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# VIREON specific
 *.checkpoint
 /data/
 /models/
 /temp/
+vireon_cache/
+vireon_logs/
+vireon_temp/
+*.vireon.lock
 
 # Large files
 core/sage_x_rust_module/target/
 **/target/debug/
+
+# Sensitive data
+secrets/
+*.key
+*.pem
+*.cert
+config/local.py
+config/production.py
 
 # Keep
 !core/lib/*.dll

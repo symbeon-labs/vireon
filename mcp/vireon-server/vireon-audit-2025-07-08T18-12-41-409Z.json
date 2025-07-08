@@ -1,0 +1,804 @@
+{
+  "timestamp": "2025-07-08T18:12:41.394Z",
+  "status": "ATTENTION",
+  "modules": {
+    "index.js": {
+      "exists": true,
+      "status": "OK",
+      "size": 15729
+    },
+    "package.json": {
+      "exists": true,
+      "status": "OK",
+      "size": 625
+    },
+    "README.md": {
+      "exists": true,
+      "status": "OK",
+      "size": 2183
+    },
+    "DESENVOLVIMENTO.md": {
+      "exists": true,
+      "status": "OK",
+      "size": 1865
+    },
+    "TODO.md": {
+      "exists": true,
+      "status": "OK",
+      "size": 1312
+    },
+    "SESSION.md": {
+      "exists": true,
+      "status": "OK",
+      "size": 1921
+    },
+    "symbiotic_integration": {
+      "exists": true,
+      "status": "IMPLEMENTED",
+      "implementation": "DETECTED"
+    },
+    "consciousness_framework": {
+      "exists": true,
+      "status": "IMPLEMENTED",
+      "implementation": "DETECTED"
+    },
+    "system_evolution": {
+      "exists": true,
+      "status": "IMPLEMENTED",
+      "implementation": "DETECTED"
+    },
+    "communication_system": {
+      "exists": true,
+      "status": "IMPLEMENTED",
+      "implementation": "DETECTED"
+    },
+    "validation_protocols": {
+      "exists": true,
+      "status": "IMPLEMENTED",
+      "implementation": "DETECTED"
+    },
+    "preservation_system": {
+      "exists": false,
+      "status": "MISSING",
+      "implementation": "NOT_FOUND"
+    },
+    "super_scope_integration": {
+      "exists": false,
+      "status": "MISSING",
+      "implementation": "NOT_FOUND"
+    },
+    "execution_protocols": {
+      "exists": false,
+      "status": "MISSING",
+      "implementation": "NOT_FOUND"
+    },
+    "metrics_monitoring": {
+      "exists": false,
+      "status": "MISSING",
+      "implementation": "NOT_FOUND"
+    },
+    "adaptive_evolution": {
+      "exists": false,
+      "status": "MISSING",
+      "implementation": "NOT_FOUND"
+    }
+  },
+  "governance": {
+    "terminology_compliance": "NEEDS_REVIEW",
+    "restricted_terms": [
+      {
+        "file": "audit-vireon.js",
+        "term": "quantum",
+        "needsValidation": true
+      },
+      {
+        "file": "audit-vireon.js",
+        "term": "neural",
+        "needsValidation": true
+      },
+      {
+        "file": "audit-vireon.js",
+        "term": "consciousness",
+        "needsValidation": true
+      },
+      {
+        "file": "giden_optimize.js",
+        "term": "quantum",
+        "needsValidation": true
+      },
+      {
+        "file": "giden_optimize.js",
+        "term": "consciousness",
+        "needsValidation": true
+      },
+      {
+        "file": "index.js",
+        "term": "quantum",
+        "needsValidation": true
+      },
+      {
+        "file": "index.js",
+        "term": "consciousness",
+        "needsValidation": true
+      },
+      {
+        "file": "TODO.md",
+        "term": "quantum",
+        "needsValidation": true
+      },
+      {
+        "file": "TODO.md",
+        "term": "consciousness",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T15-20-47-482Z.json",
+        "term": "quantum",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T15-20-47-482Z.json",
+        "term": "neural",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T15-20-47-482Z.json",
+        "term": "consciousness",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T17-30-43-723Z.json",
+        "term": "quantum",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T17-30-43-723Z.json",
+        "term": "neural",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T17-30-43-723Z.json",
+        "term": "consciousness",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-650Z.json",
+        "term": "quantum",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-650Z.json",
+        "term": "neural",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-650Z.json",
+        "term": "consciousness",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-774Z.json",
+        "term": "quantum",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-774Z.json",
+        "term": "neural",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-774Z.json",
+        "term": "consciousness",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-854Z.json",
+        "term": "quantum",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-854Z.json",
+        "term": "neural",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-854Z.json",
+        "term": "consciousness",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-978Z.json",
+        "term": "quantum",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-978Z.json",
+        "term": "neural",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-978Z.json",
+        "term": "consciousness",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-070Z.json",
+        "term": "quantum",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-070Z.json",
+        "term": "neural",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-070Z.json",
+        "term": "consciousness",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-148Z.json",
+        "term": "quantum",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-148Z.json",
+        "term": "neural",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-148Z.json",
+        "term": "consciousness",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-230Z.json",
+        "term": "quantum",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-230Z.json",
+        "term": "neural",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-230Z.json",
+        "term": "consciousness",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-323Z.json",
+        "term": "quantum",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-323Z.json",
+        "term": "neural",
+        "needsValidation": true
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-323Z.json",
+        "term": "consciousness",
+        "needsValidation": true
+      }
+    ],
+    "session_documentation": "COMPLETE",
+    "framework_alignment": "CHECKING"
+  },
+  "integration": {
+    "mcp_server": "NOT_CONFIGURED",
+    "node_modules": "PRESENT",
+    "dependencies": "INSTALLED",
+    "api_endpoints": "CONFIGURED"
+  },
+  "security": {
+    "credentials_management": "SECURE",
+    "environment_variables": "CONFIGURED",
+    "input_validation": "CHECKING",
+    "error_handling": "IMPLEMENTED"
+  },
+  "performance": {
+    "file_sizes": {
+      "audit-vireon.js": {
+        "size": 19908,
+        "status": "SMALL"
+      },
+      "DESENVOLVIMENTO.md": {
+        "size": 1865,
+        "status": "SMALL"
+      },
+      "giden_optimize.js": {
+        "size": 24531,
+        "status": "SMALL"
+      },
+      "index.js": {
+        "size": 15729,
+        "status": "SMALL"
+      },
+      "package-lock.json": {
+        "size": 6819,
+        "status": "SMALL"
+      },
+      "package.json": {
+        "size": 625,
+        "status": "SMALL"
+      },
+      "README.md": {
+        "size": 2183,
+        "status": "SMALL"
+      },
+      "SESSION.md": {
+        "size": 1921,
+        "status": "SMALL"
+      },
+      "TODO.md": {
+        "size": 1312,
+        "status": "SMALL"
+      },
+      "vireon-audit-2025-07-08T15-20-47-482Z.json": {
+        "size": 5434,
+        "status": "SMALL"
+      },
+      "vireon-audit-2025-07-08T17-30-43-723Z.json": {
+        "size": 7881,
+        "status": "SMALL"
+      },
+      "vireon-audit-2025-07-08T18-12-40-650Z.json": {
+        "size": 10161,
+        "status": "SMALL"
+      },
+      "vireon-audit-2025-07-08T18-12-40-774Z.json": {
+        "size": 11577,
+        "status": "SMALL"
+      },
+      "vireon-audit-2025-07-08T18-12-40-854Z.json": {
+        "size": 12992,
+        "status": "SMALL"
+      },
+      "vireon-audit-2025-07-08T18-12-40-978Z.json": {
+        "size": 14408,
+        "status": "SMALL"
+      },
+      "vireon-audit-2025-07-08T18-12-41-070Z.json": {
+        "size": 15824,
+        "status": "SMALL"
+      },
+      "vireon-audit-2025-07-08T18-12-41-148Z.json": {
+        "size": 17242,
+        "status": "SMALL"
+      },
+      "vireon-audit-2025-07-08T18-12-41-230Z.json": {
+        "size": 18660,
+        "status": "SMALL"
+      },
+      "vireon-audit-2025-07-08T18-12-41-323Z.json": {
+        "size": 20078,
+        "status": "SMALL"
+      }
+    },
+    "dependency_count": 4,
+    "code_complexity": "CHECKING"
+  },
+  "recommendations": [
+    {
+      "category": "STRUCTURE",
+      "priority": "HIGH",
+      "description": "Módulos faltando: preservation_system, super_scope_integration, execution_protocols, metrics_monitoring, adaptive_evolution",
+      "action": "Implementar módulos críticos do sistema"
+    },
+    {
+      "category": "GOVERNANCE",
+      "priority": "MEDIUM",
+      "description": "Termos restritos encontrados",
+      "action": "Revisar e substituir terminologia não-validada"
+    }
+  ],
+  "terminology": {
+    "violations": [
+      {
+        "file": "audit-vireon.js",
+        "term": "quantum",
+        "count": 2,
+        "suggested_replacement": "advanced algorithmic"
+      },
+      {
+        "file": "audit-vireon.js",
+        "term": "neural",
+        "count": 2,
+        "suggested_replacement": "algorithmic"
+      },
+      {
+        "file": "audit-vireon.js",
+        "term": "consciousness",
+        "count": 3,
+        "suggested_replacement": "awareness"
+      },
+      {
+        "file": "audit-vireon.js",
+        "term": "transcendent",
+        "count": 1,
+        "suggested_replacement": "advanced"
+      },
+      {
+        "file": "audit-vireon.js",
+        "term": "dimensional",
+        "count": 1,
+        "suggested_replacement": "contextual"
+      },
+      {
+        "file": "giden_optimize.js",
+        "term": "quantum",
+        "count": 1,
+        "suggested_replacement": "advanced algorithmic"
+      },
+      {
+        "file": "giden_optimize.js",
+        "term": "consciousness",
+        "count": 3,
+        "suggested_replacement": "awareness"
+      },
+      {
+        "file": "giden_optimize.js",
+        "term": "transcendent",
+        "count": 1,
+        "suggested_replacement": "advanced"
+      },
+      {
+        "file": "giden_optimize.js",
+        "term": "dimensional",
+        "count": 2,
+        "suggested_replacement": "contextual"
+      },
+      {
+        "file": "index.js",
+        "term": "quantum",
+        "count": 2,
+        "suggested_replacement": "advanced algorithmic"
+      },
+      {
+        "file": "index.js",
+        "term": "consciousness",
+        "count": 13,
+        "suggested_replacement": "awareness"
+      },
+      {
+        "file": "index.js",
+        "term": "transcendent",
+        "count": 1,
+        "suggested_replacement": "advanced"
+      },
+      {
+        "file": "index.js",
+        "term": "dimensional",
+        "count": 4,
+        "suggested_replacement": "contextual"
+      },
+      {
+        "file": "TODO.md",
+        "term": "quantum",
+        "count": 1,
+        "suggested_replacement": "advanced algorithmic"
+      },
+      {
+        "file": "TODO.md",
+        "term": "consciousness",
+        "count": 2,
+        "suggested_replacement": "awareness"
+      },
+      {
+        "file": "TODO.md",
+        "term": "transcendent",
+        "count": 1,
+        "suggested_replacement": "advanced"
+      },
+      {
+        "file": "TODO.md",
+        "term": "dimensional",
+        "count": 1,
+        "suggested_replacement": "contextual"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T15-20-47-482Z.json",
+        "term": "quantum",
+        "count": 4,
+        "suggested_replacement": "advanced algorithmic"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T15-20-47-482Z.json",
+        "term": "neural",
+        "count": 2,
+        "suggested_replacement": "algorithmic"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T15-20-47-482Z.json",
+        "term": "consciousness",
+        "count": 6,
+        "suggested_replacement": "awareness"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T15-20-47-482Z.json",
+        "term": "transcendent",
+        "count": 2,
+        "suggested_replacement": "advanced"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T15-20-47-482Z.json",
+        "term": "dimensional",
+        "count": 2,
+        "suggested_replacement": "contextual"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T17-30-43-723Z.json",
+        "term": "quantum",
+        "count": 8,
+        "suggested_replacement": "advanced algorithmic"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T17-30-43-723Z.json",
+        "term": "neural",
+        "count": 4,
+        "suggested_replacement": "algorithmic"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T17-30-43-723Z.json",
+        "term": "consciousness",
+        "count": 10,
+        "suggested_replacement": "awareness"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T17-30-43-723Z.json",
+        "term": "transcendent",
+        "count": 4,
+        "suggested_replacement": "advanced"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T17-30-43-723Z.json",
+        "term": "dimensional",
+        "count": 4,
+        "suggested_replacement": "contextual"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-650Z.json",
+        "term": "quantum",
+        "count": 12,
+        "suggested_replacement": "advanced algorithmic"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-650Z.json",
+        "term": "neural",
+        "count": 6,
+        "suggested_replacement": "algorithmic"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-650Z.json",
+        "term": "consciousness",
+        "count": 13,
+        "suggested_replacement": "awareness"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-650Z.json",
+        "term": "transcendent",
+        "count": 6,
+        "suggested_replacement": "advanced"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-650Z.json",
+        "term": "dimensional",
+        "count": 6,
+        "suggested_replacement": "contextual"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-774Z.json",
+        "term": "quantum",
+        "count": 14,
+        "suggested_replacement": "advanced algorithmic"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-774Z.json",
+        "term": "neural",
+        "count": 8,
+        "suggested_replacement": "algorithmic"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-774Z.json",
+        "term": "consciousness",
+        "count": 15,
+        "suggested_replacement": "awareness"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-774Z.json",
+        "term": "transcendent",
+        "count": 7,
+        "suggested_replacement": "advanced"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-774Z.json",
+        "term": "dimensional",
+        "count": 7,
+        "suggested_replacement": "contextual"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-854Z.json",
+        "term": "quantum",
+        "count": 16,
+        "suggested_replacement": "advanced algorithmic"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-854Z.json",
+        "term": "neural",
+        "count": 10,
+        "suggested_replacement": "algorithmic"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-854Z.json",
+        "term": "consciousness",
+        "count": 17,
+        "suggested_replacement": "awareness"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-854Z.json",
+        "term": "transcendent",
+        "count": 8,
+        "suggested_replacement": "advanced"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-854Z.json",
+        "term": "dimensional",
+        "count": 8,
+        "suggested_replacement": "contextual"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-978Z.json",
+        "term": "quantum",
+        "count": 18,
+        "suggested_replacement": "advanced algorithmic"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-978Z.json",
+        "term": "neural",
+        "count": 12,
+        "suggested_replacement": "algorithmic"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-978Z.json",
+        "term": "consciousness",
+        "count": 19,
+        "suggested_replacement": "awareness"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-978Z.json",
+        "term": "transcendent",
+        "count": 9,
+        "suggested_replacement": "advanced"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-40-978Z.json",
+        "term": "dimensional",
+        "count": 9,
+        "suggested_replacement": "contextual"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-070Z.json",
+        "term": "quantum",
+        "count": 20,
+        "suggested_replacement": "advanced algorithmic"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-070Z.json",
+        "term": "neural",
+        "count": 14,
+        "suggested_replacement": "algorithmic"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-070Z.json",
+        "term": "consciousness",
+        "count": 21,
+        "suggested_replacement": "awareness"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-070Z.json",
+        "term": "transcendent",
+        "count": 10,
+        "suggested_replacement": "advanced"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-070Z.json",
+        "term": "dimensional",
+        "count": 10,
+        "suggested_replacement": "contextual"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-148Z.json",
+        "term": "quantum",
+        "count": 22,
+        "suggested_replacement": "advanced algorithmic"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-148Z.json",
+        "term": "neural",
+        "count": 16,
+        "suggested_replacement": "algorithmic"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-148Z.json",
+        "term": "consciousness",
+        "count": 23,
+        "suggested_replacement": "awareness"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-148Z.json",
+        "term": "transcendent",
+        "count": 11,
+        "suggested_replacement": "advanced"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-148Z.json",
+        "term": "dimensional",
+        "count": 11,
+        "suggested_replacement": "contextual"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-230Z.json",
+        "term": "quantum",
+        "count": 24,
+        "suggested_replacement": "advanced algorithmic"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-230Z.json",
+        "term": "neural",
+        "count": 18,
+        "suggested_replacement": "algorithmic"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-230Z.json",
+        "term": "consciousness",
+        "count": 25,
+        "suggested_replacement": "awareness"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-230Z.json",
+        "term": "transcendent",
+        "count": 12,
+        "suggested_replacement": "advanced"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-230Z.json",
+        "term": "dimensional",
+        "count": 12,
+        "suggested_replacement": "contextual"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-323Z.json",
+        "term": "quantum",
+        "count": 26,
+        "suggested_replacement": "advanced algorithmic"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-323Z.json",
+        "term": "neural",
+        "count": 20,
+        "suggested_replacement": "algorithmic"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-323Z.json",
+        "term": "consciousness",
+        "count": 27,
+        "suggested_replacement": "awareness"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-323Z.json",
+        "term": "transcendent",
+        "count": 13,
+        "suggested_replacement": "advanced"
+      },
+      {
+        "file": "vireon-audit-2025-07-08T18-12-41-323Z.json",
+        "term": "dimensional",
+        "count": 13,
+        "suggested_replacement": "contextual"
+      }
+    ],
+    "replacements_needed": [],
+    "compliance_score": -589
+  }
+}

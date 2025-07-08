@@ -1,0 +1,226 @@
+{
+  "timestamp": "2025-07-08T15:20:47.437Z",
+  "status": "ATTENTION",
+  "modules": {
+    "index.js": {
+      "exists": true,
+      "status": "OK",
+      "size": 15501
+    },
+    "package.json": {
+      "exists": true,
+      "status": "OK",
+      "size": 625
+    },
+    "README.md": {
+      "exists": false,
+      "status": "MISSING",
+      "size": 0
+    },
+    "DESENVOLVIMENTO.md": {
+      "exists": false,
+      "status": "MISSING",
+      "size": 0
+    },
+    "TODO.md": {
+      "exists": false,
+      "status": "MISSING",
+      "size": 0
+    },
+    "SESSION.md": {
+      "exists": false,
+      "status": "MISSING",
+      "size": 0
+    },
+    "symbiotic_integration": {
+      "exists": true,
+      "status": "IMPLEMENTED",
+      "implementation": "DETECTED"
+    },
+    "consciousness_framework": {
+      "exists": false,
+      "status": "MISSING",
+      "implementation": "NOT_FOUND"
+    },
+    "system_evolution": {
+      "exists": true,
+      "status": "IMPLEMENTED",
+      "implementation": "DETECTED"
+    },
+    "communication_system": {
+      "exists": false,
+      "status": "MISSING",
+      "implementation": "NOT_FOUND"
+    },
+    "validation_protocols": {
+      "exists": false,
+      "status": "MISSING",
+      "implementation": "NOT_FOUND"
+    },
+    "preservation_system": {
+      "exists": false,
+      "status": "MISSING",
+      "implementation": "NOT_FOUND"
+    },
+    "super_scope_integration": {
+      "exists": false,
+      "status": "MISSING",
+      "implementation": "NOT_FOUND"
+    },
+    "execution_protocols": {
+      "exists": false,
+      "status": "MISSING",
+      "implementation": "NOT_FOUND"
+    },
+    "metrics_monitoring": {
+      "exists": false,
+      "status": "MISSING",
+      "implementation": "NOT_FOUND"
+    },
+    "adaptive_evolution": {
+      "exists": false,
+      "status": "MISSING",
+      "implementation": "NOT_FOUND"
+    }
+  },
+  "governance": {
+    "terminology_compliance": "NEEDS_REVIEW",
+    "restricted_terms": [
+      {
+        "file": "audit-vireon.js",
+        "term": "quantum",
+        "needsValidation": true
+      },
+      {
+        "file": "audit-vireon.js",
+        "term": "neural",
+        "needsValidation": true
+      },
+      {
+        "file": "audit-vireon.js",
+        "term": "consciousness",
+        "needsValidation": true
+      },
+      {
+        "file": "index.js",
+        "term": "quantum",
+        "needsValidation": true
+      },
+      {
+        "file": "index.js",
+        "term": "consciousness",
+        "needsValidation": true
+      }
+    ],
+    "session_documentation": "INCOMPLETE",
+    "framework_alignment": "CHECKING"
+  },
+  "integration": {
+    "mcp_server": "NOT_CONFIGURED",
+    "node_modules": "PRESENT",
+    "dependencies": "INSTALLED",
+    "api_endpoints": "CONFIGURED"
+  },
+  "security": {
+    "credentials_management": "SECURE",
+    "environment_variables": "CONFIGURED",
+    "input_validation": "CHECKING",
+    "error_handling": "IMPLEMENTED"
+  },
+  "performance": {
+    "file_sizes": {
+      "audit-vireon.js": {
+        "size": 19908,
+        "status": "SMALL"
+      },
+      "index.js": {
+        "size": 15501,
+        "status": "SMALL"
+      },
+      "package-lock.json": {
+        "size": 6819,
+        "status": "SMALL"
+      },
+      "package.json": {
+        "size": 625,
+        "status": "SMALL"
+      }
+    },
+    "dependency_count": 4,
+    "code_complexity": "CHECKING"
+  },
+  "recommendations": [
+    {
+      "category": "STRUCTURE",
+      "priority": "HIGH",
+      "description": "Módulos faltando: README.md, DESENVOLVIMENTO.md, TODO.md, SESSION.md, consciousness_framework, communication_system, validation_protocols, preservation_system, super_scope_integration, execution_protocols, metrics_monitoring, adaptive_evolution",
+      "action": "Implementar módulos críticos do sistema"
+    },
+    {
+      "category": "GOVERNANCE",
+      "priority": "MEDIUM",
+      "description": "Termos restritos encontrados",
+      "action": "Revisar e substituir terminologia não-validada"
+    }
+  ],
+  "terminology": {
+    "violations": [
+      {
+        "file": "audit-vireon.js",
+        "term": "quantum",
+        "count": 2,
+        "suggested_replacement": "advanced algorithmic"
+      },
+      {
+        "file": "audit-vireon.js",
+        "term": "neural",
+        "count": 2,
+        "suggested_replacement": "algorithmic"
+      },
+      {
+        "file": "audit-vireon.js",
+        "term": "consciousness",
+        "count": 3,
+        "suggested_replacement": "awareness"
+      },
+      {
+        "file": "audit-vireon.js",
+        "term": "transcendent",
+        "count": 1,
+        "suggested_replacement": "advanced"
+      },
+      {
+        "file": "audit-vireon.js",
+        "term": "dimensional",
+        "count": 1,
+        "suggested_replacement": "contextual"
+      },
+      {
+        "file": "index.js",
+        "term": "quantum",
+        "count": 2,
+        "suggested_replacement": "advanced algorithmic"
+      },
+      {
+        "file": "index.js",
+        "term": "consciousness",
+        "count": 11,
+        "suggested_replacement": "awareness"
+      },
+      {
+        "file": "index.js",
+        "term": "transcendent",
+        "count": 1,
+        "suggested_replacement": "advanced"
+      },
+      {
+        "file": "index.js",
+        "term": "dimensional",
+        "count": 4,
+        "suggested_replacement": "contextual"
+      }
+    ],
+    "replacements_needed": [],
+    "compliance_score": -35
+  }
+}

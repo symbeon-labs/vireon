@@ -22,7 +22,7 @@ if ($warpProcess) {
 # 2. Limpar cache do sistema
 Write-Host "`n[2] Limpando caches do sistema..." -ForegroundColor Green
 Remove-Item -Path "$env:TEMP\*" -Recurse -Force -ErrorAction SilentlyContinue
-Write-Host "  OK - Cache temporário limpo" -ForegroundColor Green
+Write-Host "  ✓ Cache temporário limpo" -ForegroundColor Green
 
 # 3. Configurar limites de memória para o Warp
 Write-Host "`n[3] Aplicando configurações de otimização..." -ForegroundColor Green
@@ -43,7 +43,7 @@ if (!(Test-Path "$env:USERPROFILE\.warp")) {
 
 # Salvar configuração
 $optimizationConfig | Set-Content -Path $configPath -Force
-Write-Host "  OK - Configurações de otimização salvas" -ForegroundColor Green
+Write-Host "  ✓ Configurações de otimização salvas" -ForegroundColor Green
 
 # 4. Reiniciar o Warp com otimizações
 $restart = Read-Host "`n[4] Deseja reiniciar o Warp agora? (S/N)"
@@ -54,7 +54,7 @@ if ($restart -eq 'S' -or $restart -eq 's') {
     
     Write-Host "  Reiniciando Warp com otimizações..." -ForegroundColor Yellow
     Start-Process "warp" -WindowStyle Minimized
-    Write-Host "  OK - Warp reiniciado" -ForegroundColor Green
+    Write-Host "  ✓ Warp reiniciado" -ForegroundColor Green
 }
 
 # 5. Verificar novo estado
@@ -69,5 +69,5 @@ if ($newWarpProcess) {
     }
 }
 
-Write-Host "`nOtimização concluída!" -ForegroundColor Green
+Write-Host "`n✅ Otimização concluída!" -ForegroundColor Green
 Write-Host "Dica: Execute este script regularmente para manter o desempenho." -ForegroundColor Cyan

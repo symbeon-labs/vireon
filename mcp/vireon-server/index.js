@@ -17,7 +17,7 @@ import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import path from 'path';
 import fs from 'fs/promises';
-import { consciousnessFramework } from './modules/consciousness_framework.js';
+import { awarenessFramework } from './modules/consciousness_framework.js';
 import { communicationSystem } from './modules/communication_system.js';
 import { validationProtocols } from './modules/validation_protocols.js';
 

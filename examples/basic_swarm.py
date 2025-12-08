@@ -35,13 +35,13 @@ async def main():
     print("SCENARIO: Multi-Agent Code Refactoring")
     print("-" * 60)
     
-    # Coordinate a complex task across models
+    # Coordinate a complex task across multiple agents
+    # Note: Community license allows max 2 concurrent agents.
     result = await vireon.swarm_execute(
         task="Refactor authentication module",
         agents=[
-            "claude-3-5-sonnet",  # For Architecture
-            "github-copilot",     # For Implementation
-            "gpt-4-turbo"         # For Security Audit
+            "architect-agent",      # For Architecture
+            "security-agent"        # For Security Audit
         ]
     )
     

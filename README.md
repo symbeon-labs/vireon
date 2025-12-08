@@ -20,6 +20,10 @@
 
 </div>
 
+<div align="center">
+  <img src="./assets/vireon_demo.gif" alt="VIREON Orchestration Demo" width="100%" />
+</div>
+
 ---
 
 ## ⚡ The Vision

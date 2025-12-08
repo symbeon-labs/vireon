@@ -10,13 +10,13 @@
 [![Python](https://img.shields.io/badge/interface-python-blue.svg)](https://www.python.org/)
 [![MCP](https://img.shields.io/badge/protocol-MCP_Ready-00ff41.svg)](https://modelcontextprotocol.io)
 [![License](https://img.shields.io/badge/license-MIT-purple.svg)](./LICENSE)
-[![Status](https://img.shields.io/badge/status-alpha_functional-green.svg)](https://github.com/SH1W4/vireon)
+[![Status](https://img.shields.io/badge/status-alpha_functional-green.svg)](https://github.com/symbeon-labs/vireon)
 
 **The Orchestration Layer for Distributed Intelligence.**
 
 *Governance, Coordination, and Synergy for Multi-Agent Systems.*
 
-[📖 Documentation](./docs/) | [💬 Discussions](https://github.com/SH1W4/vireon/discussions) | [🚀 Quick Start](#-quick-start)
+[📖 Documentation](./docs/) | [💬 Discussions](https://github.com/symbeon-labs/vireon/discussions) | [🚀 Quick Start](#-quick-start)
 
 </div>
 
@@ -95,7 +95,7 @@ graph TD
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/SH1W4/vireon.git
+git clone https://github.com/symbeon-labs/vireon.git
 cd vireon
 
 # 2. Setup Virtual Environment
@@ -179,7 +179,7 @@ VIREON is designed for **Zero-Trust, Multi-Vendor Environments**.
 We are building the **infrastructure for the Agentic Era**. Join us in defining how distributed intelligence operates at scale.
 
 1. Read [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines
-2. Join discussions on [GitHub Discussions](https://github.com/SH1W4/vireon/discussions)
+2. Join discussions on [GitHub Discussions](https://github.com/symbeon-labs/vireon/discussions)
 3. Submit PRs (Convention: **Logic in Rust, Glue in Python**)
 
 ---

@@ -141,7 +141,7 @@
 - [ ] **Task 3.4:** Test full workflow
   ```bash
   # Fresh clone test
-  git clone https://github.com/SH1W4/vireon.git
+  git clone https://github.com/symbeon-labs/vireon.git
   cd vireon
   pip install -e .
   python examples/basic_swarm.py

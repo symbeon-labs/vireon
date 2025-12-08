@@ -90,7 +90,7 @@ print(result.consensus)  # Works!
 
 - Removed personal research folders (`DADOS PESQ GPT`, `Shared`, `RECOVERY_*`)
 - Updated `.gitignore` with comprehensive exclusions
-- Fixed broken repository URLs (vireon-core → SH1W4/vireon)
+- Fixed broken repository URLs (vireon-core → symbeon-labs/vireon)
 - Organized file structure for maintainability
 
 ---
@@ -150,7 +150,7 @@ print(result.consensus)  # Works!
 
 ### For New Users
 ```bash
-git clone https://github.com/SH1W4/vireon.git
+git clone https://github.com/symbeon-labs/vireon.git
 cd vireon
 pip install pyyaml pydantic
 python examples/basic_swarm.py

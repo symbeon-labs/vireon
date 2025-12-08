@@ -160,8 +160,8 @@ result = await vireon.swarm_execute(
 ## 📞 Contact & Support
 
 ### Community Support
-- GitHub Issues: [github.com/SH1W4/vireon/issues](https://github.com/SH1W4/vireon/issues)
-- Discussions: [github.com/SH1W4/vireon/discussions](https://github.com/SH1W4/vireon/discussions)
+- GitHub Issues: [github.com/symbeon-labs/vireon/issues](https://github.com/symbeon-labs/vireon/issues)
+- Discussions: [github.com/symbeon-labs/vireon/discussions](https://github.com/symbeon-labs/vireon/discussions)
 
 ### Commercial Support
 - Email: support@vireon.ai

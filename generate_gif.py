@@ -14,9 +14,9 @@ LINE_HEIGHT = 28
 
 # Simulated terminal sequence
 SEQUENCE = [
-    ("$ vireon init --swarm-mode=active", 0.5),
+    ("$ sys init --swarm-mode=active", 0.5),
     ("", 0.2),
-    (f"[VIREON] Initializing Core v0.2.0...", 0.1),
+    (f"[SYSTEM] Initializing Core v0.2.0...", 0.1),
     (f"[SYSTEM] Loading Neural Bridge modules... OK", 0.1),
     (f"[SYSTEM] Connecting to MCP Server... LINKED", 0.1),
     ("", 0.5),
@@ -30,7 +30,7 @@ SEQUENCE = [
     (f"[ENGINEER] Applied zero-copy deserialization.", 0.1),
     (f"[AUDITOR] Security Scan: PASS (Score: 99/100)", 0.1),
     ("", 0.2),
-    (f"[VIREON] Consensus Reached.", 0.2),
+    (f"[SYSTEM] Consensus Reached.", 0.2),
     (f"[RESULT] Performance improved by 450%. Merging...", 0.5),
     ("", 1.0)
 ]
@@ -50,7 +50,7 @@ def create_frame(lines, cursor_visible=True):
     y = PADDING
     for line in lines:
         color = TEXT_COLOR
-        if "[VIREON]" in line or "[RESULT]" in line:
+        if "[SYSTEM]" in line or "[RESULT]" in line:
             color = ACCENT_GREEN
         elif "[ORCHESTRATOR]" in line or "Task:" in line:
             color = ACCENT_PURPLE
@@ -78,7 +78,7 @@ def generate_gif():
     current_lines = []
     
     # Header
-    HEADER = "VIREON@SYMBEON-LABS:~/workspace"
+    HEADER = "SH1W4@SYMBEON-LABS:~/workspace"
     
     for text, delay in SEQUENCE:
         # typing effect for the command

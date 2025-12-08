@@ -8,12 +8,12 @@
 [![Python](https://img.shields.io/badge/interface-python-blue.svg)](https://www.python.org/)
 [![MCP](https://img.shields.io/badge/protocol-MCP_Ready-00ff41.svg)](https://modelcontextprotocol.io)
 [![License](https://img.shields.io/badge/license-MIT-purple.svg)](./LICENSE)
-[![Status](https://img.shields.io/badge/status-active_beta-yellow.svg)](https://github.com/vireon-core/VIREON)
+[![Status](https://img.shields.io/badge/status-active_beta-yellow.svg)](https://github.com/SH1W4/vireon)
 
 **The Operating System for the Agentic Era.**
 *Governance, Orchestration, and Symbiosis for Multi-Agent Ecosystems.*
 
-[📖 Documentation](./docs/) | [💬 Discussions](https://github.com/vireon-core/VIREON/discussions)
+[📖 Documentation](./docs/) | [💬 Discussions](https://github.com/SH1W4/vireon/discussions)
 
 </div>
 
@@ -78,8 +78,8 @@ graph TD
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/vireon-core/VIREON.git
-cd VIREON
+git clone https://github.com/SH1W4/vireon.git
+cd vireon
 
 # 2. Setup Virtual Environment
 python -m venv .venv

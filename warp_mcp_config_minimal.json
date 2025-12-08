@@ -1,6 +1,0 @@
-﻿{
-  "guardrive": {
-    "command": "node",
-    "args": ["C:\\Users\\João\\Desktop\\PROJETOS\\GUARDRIVE-ORG\\GUARDRIVE-MCP\\guardrive-mcp-core\\cli.js"]
-  }
-}

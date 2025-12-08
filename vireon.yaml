@@ -1,0 +1,63 @@
+# VIREON Configuration File
+# =========================
+
+name: "vireon-production"
+version: "0.2.0"
+
+# Governance Rules
+# ----------------
+# Rules that govern agent behavior and decision-making
+governance:
+  - rule: "consensus_required"
+    threshold: 0.75  # 75% agreement needed
+    enabled: true
+  
+  - rule: "no_hallucination_tolerance"
+    enabled: true
+    validation_mode: "strict"
+  
+  - rule: "code_quality_gate"
+    enabled: true
+    requirements:
+      - "tests_required"
+      - "security_scan_passed"
+
+# Agent Definitions
+# -----------------
+# Configure available agents and their capabilities
+agents:
+  claude-3-5-sonnet:
+    provider: "anthropic"
+    role: "architect"
+    capabilities: ["analysis", "architecture", "code_review"]
+  
+  github-copilot:
+    provider: "github"
+    role: "engineer"
+    capabilities: ["implementation", "refactoring"]
+  
+  gpt-4-turbo:
+    provider: "openai"
+    role: "auditor"
+    capabilities: ["security", "testing", "validation"]
+
+# MCP Configuration
+# ------------------
+mcp:
+  enabled: true
+  server_url: "http://localhost:3000"
+  protocol_version: "1.0"
+
+# Performance Settings
+# --------------------
+performance:
+  max_concurrent_agents: 5
+  timeout_seconds: 300
+  retry_attempts: 3
+
+# Logging
+# -------
+logging:
+  level: "INFO"
+  format: "json"
+  output: "stdout"

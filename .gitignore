@@ -12,10 +12,20 @@ env/
 dist/
 build/
 
-# Rust
+# Rust - CRITICAL: Protect proprietary source
 target/
-Cargo.lock
 **/*.rs.bk
+
+# 🔒 PROPRIETARY CODE - DO NOT COMMIT
+core/sage_x_rust_module/src/
+core/sage_x_rust_module/Cargo.toml
+core/symbiotic_core/**/*.rs
+!core/symbiotic_core/lib/
+
+# Binaries ARE committed (closed-source distribution)
+!core/*/lib/*.so
+!core/*/lib/*.dll
+!core/*/lib/*.dylib
 
 # IDEs
 .vscode/
@@ -65,3 +75,7 @@ warp_mcp_config*.json
 # Temporary files
 $docPath
 .nojekyll
+
+# 🔐 CONFIDENTIAL STRATEGY DOCUMENTS
+STRATEGY_IP_PROTECTION.md
+INTERNAL_*.md

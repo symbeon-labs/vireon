@@ -95,21 +95,39 @@ class VireonCore:
             task: Description of the task to execute
             agents: List of agent identifiers to use
             mode: Execution mode ("consensus", "parallel", "sequential")
-            timeout: Maximum execution time in seconds
+timeout: Maximum execution time in seconds
         
         Returns:
             SwarmConsensus object with results and metadata
         
+        Raises:
+            LicenseError: If license doesn't permit this many agents
+        
         Example:
             >>> result = await vireon.swarm_execute(
             ...     task="Analyze codebase for security issues",
-            ...     agents=["claude-3-5-sonnet", "gpt-4-turbo"]
+            ...     agents=["architect-agent", "security-agent"]
             ... )
             >>> print(result.consensus)
             >>> print(result.confidence_score)
         """
+        # 🔐 LICENSE VALIDATION
+        from .licensing import get_validator, LicenseError
+        
+        validator = get_validator()
+        if not validator.can_use_agents(len(agents)):
+            max_allowed = validator.validate().get("max_agents", 2)
+            tier = validator.get_tier()
+            
+            raise LicenseError(
+                f"License '{tier}' allows max {max_allowed} agents, "
+                f"but you requested {len(agents)}. "
+                f"Upgrade at https://vireon.ai/pricing or set VIREON_LICENSE_KEY."
+            )
+        
         print(f"\n[ORCHESTRATOR] Spawning {len(agents)} agents for task")
         print(f"[TASK] {task}")
+        print(f"[LICENSE] Tier: {validator.get_tier().upper()}")
         
         # Simulate agent execution (Phase 1: MVP implementation)
         # TODO: Replace with actual LLM API calls in Phase 2

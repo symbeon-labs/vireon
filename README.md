@@ -11,6 +11,7 @@
 [![Status](https://img.shields.io/badge/status-active_beta-yellow.svg)](https://github.com/SH1W4/vireon)
 
 **The Operating System for the Agentic Era.**
+
 *Governance, Orchestration, and Symbiosis for Multi-Agent Ecosystems.*
 
 [📖 Documentation](./docs/) | [💬 Discussions](https://github.com/SH1W4/vireon/discussions)
@@ -20,8 +21,8 @@
 ---
 
 ## ⚡ The Vision
-We are entering the **Age of Agents**. Developers no longer use just one copilot; they use a swarm. 
-GitHub Copilot, Claude Dev, Cursor, Custom GPTs—they all operate in silos, unaware of each other.
+
+We are entering the **Age of Agents**. Developers no longer use just one copilot; they use a swarm. GitHub Copilot, Claude Dev, Cursor, Custom GPTs—they all operate in silos, unaware of each other.
 
 **VIREON** is the missing link. It is a **Universal Meta-Governance Layer** that unifies your AI tools into a cohesive, governed, and self-organizing ecosystem.
 
@@ -32,19 +33,25 @@ GitHub Copilot, Claude Dev, Cursor, Custom GPTs—they all operate in silos, una
 ## 🔥 Core Capabilities
 
 ### 🌐 1. Universal MCP Ecosystem (Model Context Protocol)
+
 VIREON implements the **Model Context Protocol** natively, allowing it to act as a central hub for any MCP-compliant agent (Claude, IDEs, etc).
-*   **Unified Context:** Share knowledge between agents instantly.
-*   **Tool Bridging:** Let Claude use tools defined in your VS Code extension.
+
+- **Unified Context:** Share knowledge between agents instantly.
+- **Tool Bridging:** Let Claude use tools defined in your VS Code extension.
 
 ### 🚀 2. Hybrid Architecture (Rust + Python)
-Built for speed, styled for flexibility.
-*   **Rust Core:** Handles the heavy lifting—sub-50ms latency for rule enforcement and context switching.
-*   **Python Interface:** Easy adoption for DS/ML teams to write custom logic.
 
-### 🧠 3. Consciousness Engine & Self-Correction
+Built for speed, styled for flexibility.
+
+- **Rust Core:** Handles the heavy lifting—sub-50ms latency for rule enforcement and context switching.
+- **Python Interface:** Easy adoption for DS/ML teams to write custom logic.
+
+### 🧠 3. Consciousness Engine and Self-Correction
+
 VIREON doesn't just route messages; it *understands* them.
-*   **Symbiotic Loop:** Monitors agent outputs for quality and consistency.
-*   **Adaptive Governance:** If an agent hallucinates, VIREON detects it and enforces strict context boundaries.
+
+- **Symbiotic Loop:** Monitors agent outputs for quality and consistency.
+- **Adaptive Governance:** If an agent hallucinates, VIREON detects it and enforces strict context boundaries.
 
 ---
 
@@ -53,7 +60,7 @@ VIREON doesn't just route messages; it *understands* them.
 ```mermaid
 graph TD
     User[Human Developer] -->|Interacts| IDE[IDE / Interface]
-    IDE -->|Connects| V_Core[VIREON Core (Rust)]
+    IDE -->|Connects| V_Core[VIREON Core - Rust]
     
     subgraph "The VIREON Ecosystem"
         V_Core -->|Gov Protocol| Agent1[GitHub Copilot]
@@ -70,9 +77,10 @@ graph TD
 ## 🚀 Quick Start
 
 ### Prerequisites
-*   Rust 1.70+
-*   Python 3.11+
-*   Docker (Optional)
+
+- Rust 1.70+
+- Python 3.11+
+- Docker (Optional)
 
 ### Installation
 
@@ -129,25 +137,26 @@ VIREON is designed for **Zero-Trust Environments**.
 
 ## 🛣️ Roadmap
 
-*   **Q1 2025:** Full MCP Server implementation & Cursor Integration.
-*   **Q2 2025:** "Consciousness Dashboard" (Real-time viz of agent thoughts).
-*   **Q3 2025:** Enterprise Cloud offering.
+- **Q1 2025:** Full MCP Server implementation and Cursor Integration.
+- **Q2 2025:** "Consciousness Dashboard" (Real-time viz of agent thoughts).
+- **Q3 2025:** Enterprise Cloud offering.
 
 ---
 
 ## 🤝 Contributing
 
-We are building the **backbone of the Agentic Future**.
-Join us in defining how humans and AI collaborate.
+We are building the **backbone of the Agentic Future**. Join us in defining how humans and AI collaborate.
 
-1.  Check [CONTRIBUTING.md](./CONTRIBUTING.md)
-2.  Join the discussion on [Discord/GitHub](#)
-3.  Submit a PR (Rule: Logic in Rust, Glue in Python)
+1. Check [CONTRIBUTING.md](./CONTRIBUTING.md)
+2. Join the discussion on [GitHub Discussions](https://github.com/SH1W4/vireon/discussions)
+3. Submit a PR (Rule: Logic in Rust, Glue in Python)
 
 ---
 
 <div align="center">
-    <b>Architected by <a href="https://github.com/SH1W4">SH1W4</a> // Symbeon Labs</b>
-    <br/>
-    <i>"The future is not a tool, but an ecosystem."</i>
+
+**Architected by [SH1W4](https://github.com/SH1W4) // Symbeon Labs**
+
+*"The future is not a tool, but an ecosystem."*
+
 </div>

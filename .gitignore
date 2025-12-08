@@ -1,5 +1,3 @@
-# VIREON - Git Ignore
-
 # Python
 __pycache__/
 *.py[cod]
@@ -11,22 +9,15 @@ venv/
 ENV/
 env/
 *.egg-info/
-.pytest_cache/
-.coverage
-htmlcov/
+dist/
+build/
 
 # Rust
 target/
 Cargo.lock
+**/*.rs.bk
 
-# Node
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.npm
-
-# IDE
+# IDEs
 .vscode/
 .idea/
 *.swp
@@ -40,122 +31,37 @@ Thumbs.db
 # Logs
 *.log
 logs/
+*.json.log
 
-# Environment
-.env
-.env.local
-.env.*.local
+# Development artifacts
+.metrics_history.json
+session_complete.txt
+task_mesh_summary_*.json
+consciousness_initialization_*.log
+migration_*.log
+security_scan_report.json
 
-# Build
-dist/
-build/
-*.exe
-*.dll
-*.so
-*.dylib
+# Recovery & Backups
+RECOVERY_*/
+*.bak
+*.backup
 
-# Temporary
-*.tmp
-*.temp
-*.cache
+# Personal/Research folders
+DADOS PESQ GPT/
+Shared/
 
-# Rust
-/target/
-**/*.rs.bk
-Cargo.lock
+# Development scripts (keep in /scripts instead)
+*.ps1
+!scripts/*.ps1
 
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+# Old HTML versions
+index-*.html
+!index.html
 
-# Virtual Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
+# Config variants
+warp_mcp_config*.json
+!warp_mcp_config.json
 
-# IDEs
-.idea/
-.vscode/
-*.code-workspace
-
-# Build
-*.rlib
-*.dll
-*.lib
-*.exe
-*.pdb
-
-# Testing
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-
-# Logs
-logs/
-*.log
-pip-log.txt
-pip-delete-this-directory.txt
-
-# OS files
-.DS_Store
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-
-# VIREON specific
-*.checkpoint
-/data/
-/models/
-/temp/
-vireon_cache/
-vireon_logs/
-vireon_temp/
-*.vireon.lock
-
-# Large files
-core/sage_x_rust_module/target/
-**/target/debug/
-
-# Sensitive data
-secrets/
-*.key
-*.pem
-*.cert
-config/local.py
-config/production.py
-
-# Keep
-!core/lib/*.dll
-!models/base/*
+# Temporary files
+$docPath
+.nojekyll

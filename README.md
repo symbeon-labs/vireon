@@ -1,10 +1,8 @@
-# VIREON: Universal
-
- Agentic Orchestration
+# VIREON: Universal Agentic Orchestration
 
 <div align="center">
 
-![VIREON Banner](https://img.shields.io/badge/VIREON-AGENTIC_ECOSYSTEM-00ff41?style=for-the-badge&logo=rust&logoColor=black)
+<img src="./assets/vireon_banner.svg" alt="VIREON Banner" width="100%" />
 
 [![Rust](https://img.shields.io/badge/core-rust-orange.svg)](https://www.rust-lang.org/)
 [![Python](https://img.shields.io/badge/interface-python-blue.svg)](https://www.python.org/)

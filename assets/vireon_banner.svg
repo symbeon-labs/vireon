@@ -1,0 +1,44 @@
+<svg width="1200" height="350" viewBox="0 0 1200 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background: Tech Pattern -->
+    <rect width="1200" height="350" fill="#030303"/>
+    <path d="M0 50 H1200 M0 150 H1200 M0 250 H1200" stroke="#111" stroke-width="1"/>
+    <path d="M100 0 V350 M300 0 V350 M500 0 V350 M700 0 V350 M900 0 V350 M1100 0 V350" stroke="#111" stroke-width="1"/>
+    
+    <!-- Glow Definitions -->
+    <defs>
+        <filter id="glow">
+            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+            <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <linearGradient id="text-grad" x1="0" y1="0" x2="100%" y2="0">
+            <stop offset="0%" stop-color="#fff"/>
+            <stop offset="100%" stop-color="#aaa"/>
+        </linearGradient>
+    </defs>
+
+    <!-- Logo Mark (Left Side) -->
+    <g transform="translate(250, 175) scale(0.6)">
+        <circle cx="0" cy="80" r="24" fill="#00ff41"/>
+        <line x1="0" y1="80" x2="-100" y2="-80" stroke="#00ff41" stroke-width="18" stroke-linecap="round"/>
+        <line x1="0" y1="80" x2="100" y2="-80" stroke="#00ff41" stroke-width="18" stroke-linecap="round"/>
+        <circle cx="-100" cy="-80" r="20" fill="#00ff41"/>
+        <circle cx="100" cy="-80" r="20" fill="#00ff41"/>
+        <line x1="-100" y1="-80" x2="0" y2="-20" stroke="#00ff41" stroke-width="8"/>
+        <line x1="100" y1="-80" x2="0" y2="-20" stroke="#00ff41" stroke-width="8"/>
+        <circle cx="0" cy="-20" r="12" fill="#00ff41"/>
+    </g>
+
+    <!-- Text: VIREON -->
+    <text x="400" y="210" font-family="Segoe UI, Roboto, Helvetica, sans-serif" font-weight="900" font-size="140" fill="#fff" letter-spacing="8" filter="url(#glow)">VIREON</text>
+    
+    <!-- Tagline -->
+    <text x="410" y="260" font-family="Consolas, monospace" font-size="24" fill="#00ff41" letter-spacing="2">UNIVERSAL ORCHESTRATION LAYER</text>
+
+    <!-- Decorative Elements -->
+    <rect x="0" y="345" width="1200" height="5" fill="#00ff41"/>
+    <circle cx="1150" cy="50" r="5" fill="#00ff41"/>
+    <circle cx="50" cy="300" r="5" fill="#00ff41"/>
+</svg>

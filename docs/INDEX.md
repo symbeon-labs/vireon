@@ -11,6 +11,7 @@
 
 ## 🗺️ Roadmap & Strategy
 - [EAP Roadmap](../EAP_ROADMAP.md)
+- [Competitive Analysis](./COMPETITIVE_ANALYSIS.md)
 - [Development Strategy](./DEVELOPMENT_STRATEGY.md)
 - [Market Research](./MARKET_RESEARCH.md)
 
